@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+
+
+body{
+    font-family: "Arima", system-ui;
+}
+
+@utility container{
+    width: 93%;
+    margin: auto;
+}
+
+section{
+    @apply py-20;
+}
+.card{
+    @apply rounded p-2 font-semibold text-gray-800 shadow-lg cursor-pointer;
+}
+.caption{
+    @apply mb-20 text-center;
+}
+.head{
+    @apply relative lg:after:content-[''] lg:after:w-[18%] lg:after:h-[100%] lg:after:absolute lg:after:left-[50%] lg:after:top-[50%] lg:after:translate-[-50%] lg:after:bg-[#C5B0CD] lg:after:-z-40 font-semibold text-3xl mb-2 text-white;
+}
+
+
+.card-bg{
+    background-color: rgba(41, 123, 164, 0.2);
+}
+
+.caption h4{
+    font-family: "Playwrite HU", cursive;
+}

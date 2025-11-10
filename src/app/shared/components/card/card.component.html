@@ -1,0 +1,135 @@
+
+<!-- Top products section(products)    (This is my code)  -->
+<!-- @if(product){
+<div class="card text-center">
+
+    <img class="w-3/4 mx-auto -translate-y-1/5 h-[220px] w-[67%]" [src]="product.imageCover" [alt]="product.title">
+    <h3 class="text-lg">{{product.title.split(' ', 2).join(' ')}}</h3>
+    <h4 class="text-sm">{{product.category.name}}</h4>
+    <p class="text-[#415E72]">{{product.price}} EGP</p>
+    <div class="text-[12px] text-[#415E72] mt-3 flex justify-between">
+        <span
+            class="bg-[#415E72] text-white w-[25px] h-[25px] rounded-full disabled:bg-[#C5B0CD] disabled:cursor-not-allowed"><i
+                class="fa-solid fa-plus translate-y-[4.5px]"></i></span>
+        <span class="translate-y-[8px]"><i class="fa-solid fa-star text-yellow-400"></i>
+            {{product.ratingsAverage}}
+        </span>
+    </div>
+</div>
+} -->
+
+<!-- Best selling section(category) -->
+<!-- 
+@if(categoryName === ' '){
+@if(category){
+<div class="card text-center">
+    <img class="w-3/4 mx-auto -translate-y-1/5 h-[220px] w-[67%]" [src]="category.image" [alt]="category.name">
+    <h3 class="text-lg">{{category.name}}</h3>
+    <p class="text-[#415E72]">{{category.price}} EGP</p>
+
+    <div class="text-[12px] text-[#415E72] mt-3 flex justify-between">
+        <span
+            class="bg-[#415E72] text-white w-[25px] h-[25px] rounded-full disabled:bg-[#C5B0CD] disabled:cursor-not-allowed"><i
+                class="fa-solid fa-plus translate-y-[4.5px]"></i></span>
+    </div>
+</div>
+
+}
+}
+
+
+@else if(categoryName === "Music"){
+@if(category && category?.name === 'Music'){
+<div class="card text-center">
+    <img class="w-3/4 mx-auto -translate-y-1/5 h-[220px] w-[67%]" [src]="category.image" [alt]="category.name">
+    <h3 class="text-lg">{{category.name}}</h3>
+    <p class="text-[#415E72]">{{category.price}} EGP</p>
+
+    <div class="text-[12px] text-[#415E72] mt-3 flex justify-between">
+        <span
+            class="bg-[#415E72] text-white w-[25px] h-[25px] rounded-full disabled:bg-[#C5B0CD] disabled:cursor-not-allowed"><i
+                class="fa-solid fa-plus translate-y-[4.5px]"></i></span>
+    </div>
+</div>
+
+}
+}@else if (categoryName === "Men's Fashion") {
+@if(category && category?.name === "Men's Fashion"){
+<div class="card text-center">
+    <img class="w-3/4 mx-auto -translate-y-1/5 h-[220px] w-[67%]" [src]="category.image" [alt]="category.name">
+    <h3 class="text-lg">{{category.name}}</h3>
+    <p class="text-[#415E72]">{{category.price}} EGP</p>
+
+    <div class="text-[12px] text-[#415E72] mt-3 flex justify-between">
+        <span
+            class="bg-[#415E72] text-white w-[25px] h-[25px] rounded-full disabled:bg-[#C5B0CD] disabled:cursor-not-allowed"><i
+                class="fa-solid fa-plus translate-y-[4.5px]"></i></span>
+    </div>
+</div>
+
+}
+}@else if (categoryName === "Women's Fashion") {
+@if(category && category?.name === "Women's Fashion"){
+<div class="card text-center">
+    <img class="w-3/4 mx-auto -translate-y-1/5 h-[220px] w-[67%]" [src]="category.image" [alt]="category.name">
+    <h3 class="text-lg">{{category.name}}</h3>
+    <p class="text-[#415E72]">{{category.price}} EGP</p>
+    <div class="text-[12px] text-[#415E72] mt-3 flex justify-between">
+        <span
+            class="bg-[#415E72] text-white w-[25px] h-[25px] rounded-full disabled:bg-[#C5B0CD] disabled:cursor-not-allowed"><i
+                class="fa-solid fa-plus translate-y-[4.5px]"></i></span>
+    </div>
+</div>
+
+
+}
+} -->
+
+
+<!-- Product Card   (This code after cleaning) -->
+@if (product) {
+  <div class="card text-center">
+    <img
+      class="w-3/4 mx-auto -translate-y-1/5 h-[220px] w-[67%]"
+      [src]="product.imageCover"
+      [alt]="product.title"
+    />
+    <h3 class="text-lg">{{ product.title.split(' ', 2).join(' ') }}</h3>
+    <h4 class="text-sm">{{ product.category.name }}</h4>
+    <p class="text-[#415E72]">{{ product.price }} EGP</p>
+
+    <div class="text-[12px] text-[#415E72] mt-3 flex justify-between">
+      <button
+        class="bg-[#415E72] text-white w-[25px] h-[25px] rounded-full flex items-center justify-center hover:bg-[#2f4758] disabled:bg-[#C5B0CD] disabled:cursor-not-allowed"
+      >
+        <i class="fa-solid fa-plus"></i>
+      </button>
+
+      <span class="flex items-center gap-1">
+        <i class="fa-solid fa-star text-yellow-400"></i>
+        {{ product.ratingsAverage }}
+      </span>
+    </div>
+  </div>
+}
+
+<!-- Category Card -->
+@if (category && (categoryName === ' ' || categoryName === category.name)) {
+  <div class="card text-center">
+    <img
+      class="w-3/4 mx-auto -translate-y-1/5 h-[220px] w-[67%]"
+      [src]="category.image"
+      [alt]="category.name"
+    />
+    <h3 class="text-lg">{{ category.name }}</h3>
+    <p class="text-[#415E72]">{{ category.price }} EGP</p>
+
+    <div class="text-[12px] text-[#415E72] mt-3 flex justify-between">
+      <button
+        class="bg-[#415E72] text-white w-[25px] h-[25px] rounded-full flex items-center justify-center hover:bg-[#2f4758] disabled:bg-[#C5B0CD] disabled:cursor-not-allowed"
+      >
+        <i class="fa-solid fa-plus"></i>
+      </button>
+    </div>
+  </div>
+}
