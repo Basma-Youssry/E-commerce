@@ -15,6 +15,7 @@ export class BestSellingComponent implements OnInit {
 
   categoriesList: Icategory[] = [];
   categoryName:string = ' ';
+  activeCategory:string = 'all';
   // all:boolean = false;
 
   private readonly categoriesBestSallerService = inject(CategoriesBestSallerService);
@@ -49,11 +50,15 @@ export class BestSellingComponent implements OnInit {
 
   selectCategory(category:Icategory):void{
     this.categoryName = category.name;
-    console.log(category.name);
+
+    this.activeCategory = category.name;
+    // console.log(category.name);
   }
 
   allbtn():void{
       // this.all = true;
       this.categoryName = ' '
+
+      this.activeCategory = 'all';
   }
 }

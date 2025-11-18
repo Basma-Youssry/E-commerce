@@ -31,17 +31,27 @@ section {
 }
 
 .head {
-    @apply relative lg:after:content-[''] lg:after:w-[20%] lg:after:h-[100%] lg:after:absolute lg:after:left-[50%] lg:after:top-[50%] lg:after:translate-[-50%] lg:after:bg-[#C5B0CD] lg:after:-z-40 font-semibold text-3xl mb-2 text-white;
+    @apply font-semibold text-3xl mb-2 text-[#A2AF9B];
 }
 
 
 .card-bg {
-    background-color: rgba(41, 123, 164, 0.2);
+    background-color: #EEEEEE;
 }
-
+.bottom-style{
+    @apply bg-[#A2AF9B] cursor-pointer text-[#FAF9EE] w-[25px] h-[25px] rounded-full flex items-center justify-center hover:bg-[#DCCFC0] hover:text-[#A2AF9B] disabled:bg-[#C5B0CD]
+}
 .caption h4 {
     font-family: "Playwrite HU", cursive;
 }
+/*Start best selling section*/
+.goup-btn{
+    @apply rounded-s-full px-4 py-2 text-sm font-medium cursor-pointer text-[#FAF9EE] /*focus:z-10  focus:bg-[#FAF9EE] focus:text-[#A2AF9B] focus:rounded-full*/;
+}
+.active-btn {
+  @apply bg-white text-[#A2AF9B] rounded-full px-4 py-1 shadow-md;
+}
+/*End best selling section*/
 /* Start New collection section */
 .layer{
     @apply  bg-black/20 absolute top-0 bottom-0 left-0 right-0 rounded-2xl;

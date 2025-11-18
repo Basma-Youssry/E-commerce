@@ -13,6 +13,7 @@ export class CardComponent {
   @Input() product?:IProduct;
   @Input() category?:Icategory;
   @Input() categoryName?:string = ' ';
+  @Input() activeCategory?:string = ' ';
  
   
 }

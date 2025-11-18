@@ -19,7 +19,7 @@ section{
 }
 
 .swiper {
-    padding: 30px 0px;
+    padding: 10px 0px;
 }
 
 .swiper-slide {
@@ -44,12 +44,16 @@ section{
   height: 35px;
   background-color: white;
   border-radius: 50%;
-  border: 1px solid #000;
+  border: 1px solid #A2AF9B;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
 
+}
+:host ::ng-deep .swiper-button-next:hover,
+:host ::ng-deep .swiper-button-prev:hover{
+  border-color: #DCCFC0;
 }
 :host ::ng-deep .swiper-button-next .swiper-navigation-icon,
 :host ::ng-deep .swiper-button-prev .swiper-navigation-icon {
@@ -57,9 +61,11 @@ section{
   height: 12px !important;  /* ← arrow height */
 }
 :host ::ng-deep .swiper{
-  --swiper-navigation-color: #000;  /* arrow color */
+  --swiper-navigation-color: #A2AF9B;  /* arrow color */
 }
-
+:host ::ng-deep .swiper:hover{
+  --swiper-navigation-color: #DCCFC0; 
+}
 :host ::ng-deep .swiper-button-prev {
     left: 1px !important;
 }
