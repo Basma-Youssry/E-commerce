@@ -62,6 +62,45 @@ section {
 
 /* End New collection section */
 
+/* Stert details section */
+.img-style{
+    @apply border border-2 border-solid border-[#A2AF9B] rounded-xl 
+}
 
+/* For Swipper */
+.custom-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
 
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+  color: #A2AF9B;
+  cursor: pointer;
+}
+
+.custom-nav:hover {
+  border-color: #DCCFC0;
+  color: #DCCFC0;
+}
+
+/* positions */
+.prev-btn {
+  left: 30px;
+}
+
+.next-btn {
+  right: 30px;
+}
+/* End details section */
 

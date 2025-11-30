@@ -23,7 +23,7 @@ getAllProductsData(): void{
     next: (res) => {
       this.allProducts = res.data;
 
-      // console.log(this.allProducts);
+      console.log(this.allProducts);
       
     },
     error: (err) => {
