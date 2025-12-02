@@ -1,0 +1,18 @@
+{
+  "routes": {
+    "/E-commerce": {},
+    "/E-commerce/about-us": {},
+    "/E-commerce/blog": {},
+    "/E-commerce/check-out": {},
+    "/E-commerce/contact-us": {},
+    "/E-commerce/details/1": {},
+    "/E-commerce/details/2": {},
+    "/E-commerce/details/product-1/1": {},
+    "/E-commerce/details/product-2/2": {},
+    "/E-commerce/home": {},
+    "/E-commerce/login": {},
+    "/E-commerce/products": {},
+    "/E-commerce/register": {},
+    "/E-commerce/services": {}
+  }
+}
