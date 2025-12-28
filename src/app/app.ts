@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, OnInit, afterNextRender, inject, PLATFORM_ID } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from "./shared/components/footer/footer.component";
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,17 @@ import { FooterComponent } from "./shared/components/footer/footer.component";
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('app');
+
+  // private readonly id= inject(PLATFORM_ID);
+
+  // ngOnInit(): void {
+  //   if(isPlatformBrowser(this.id)){
+  //     this.hamade();
+  //   }
+  // }
+
+
+  //   hamade():void{
+  //     localStorage.setItem('X', 'Y');
+  //   }
 }

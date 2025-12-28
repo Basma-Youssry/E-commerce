@@ -12,6 +12,8 @@ import { BlogComponent } from './features/blog/blog.component';
 import { RegisterComponent } from './core/auth/register/register.component';
 import { LoginComponent } from './core/auth/login/login.component';
 import { Routes } from '@angular/router';
+import { authGuard } from './core/guards/auth-guard';
+import { inloggedGuard } from './core/guards/inlogged-guard';
 
 
 export const routes: Routes = [
@@ -20,12 +22,12 @@ export const routes: Routes = [
         path: '', component: AuthLayoutComponent, children: [
             { path: 'register', component: RegisterComponent, title: 'Register page' },
             { path: 'login', component: LoginComponent, title: 'Login page' },
-        ]
-
+        ],
+        canActivate:[inloggedGuard]
     },
     {
         path: '', component: BlankLayoutComponent, children: [
-            { path: 'home', component: HomeComponent, title: 'Home page' },
+            { path: 'home', component: HomeComponent, title: 'Home page'},
             { path: 'about-us', component: AboutUsComponent, title: 'About page' },
             { path: 'services', component: ServicesComponent, title: 'Services page' },
             { path: 'products', component: ProductsComponent, title: 'Products page' },
@@ -34,7 +36,8 @@ export const routes: Routes = [
             { path: 'contact-us', component: ContactUsComponent, title: 'Contact-us page' },
             { path: 'check-out', component: CheckoutComponent, title: 'check-out page' },
             { path: 'blog', component: BlogComponent, title: 'Blog page' },
-        ]
+        ],
+        canActivate:[authGuard]
     },
     {path: '**', component: NotfoundComponent}
 ];

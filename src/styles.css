@@ -4,6 +4,8 @@
 @source "../node_modules/flowbite";
 
 
+@import "flowbite";
+
 body, html {
   margin: 0;
   padding: 0;
@@ -13,7 +15,7 @@ body {
     font-family: "Arima", system-ui;
 }
 
-@utility container {
+.container {
     width: 90%;
     margin: auto;
 }

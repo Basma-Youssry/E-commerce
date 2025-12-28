@@ -10,7 +10,6 @@ export class ProductdetailsService {
   private readonly httpClient = inject(HttpClient);
 
 
-
   getProductDetails(id:string|null):Observable<any>{
     return this.httpClient.get(environment.baseUrl + `products/${id}`);
   }

@@ -3,11 +3,13 @@ import { ProductsService } from '../../core/services/products/products.service';
 import { IProduct } from '../../core/interfaces/Iproduct.interface';
 import { CardComponent } from '../../shared/components/card/card.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchPipe } from '../../shared/pipes/search-pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-products',
-  imports: [CardComponent, NgxPaginationModule],
-templateUrl: './products.component.html',
+  imports: [CardComponent, NgxPaginationModule, SearchPipe, FormsModule],
+  templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
 export class ProductsComponent implements OnInit {
@@ -15,7 +17,8 @@ allProducts:IProduct[] = [];
 pageSize!:number;
 p!:number;
 total!:number;
-
+//For search pipe
+item:string = "";
 
   private readonly  productsService = inject(ProductsService);
 
@@ -31,7 +34,7 @@ getAllProductsData(pageNumber:number = 1): void{
       this.pageSize = res.metadata.limit;
       this.p = res.metadata.currentPage;
       this.total = res.results;
-      console.log(this.allProducts);
+      // console.log(this.allProducts);
       
     },
     error: (err) => {

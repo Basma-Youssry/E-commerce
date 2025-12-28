@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: angular20-ssr-app
+    env: node
+    plan: free
+
+    buildCommand: |
+      npm install
+      npm run build:ssr
+
+    startCommand: npm run start:ssr

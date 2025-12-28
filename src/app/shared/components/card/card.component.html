@@ -90,9 +90,9 @@
 <div class="card text-center h-full">
   <div [routerLink]="['/details',product.slug ,product.id]">
     <img class="w-3/4 mx-auto -translate-y-1/5 h-[220px] w-[67%]" [src]="product.imageCover" [alt]="product.title" />
-    <h3 class="text-lg">{{ product.title.split(' ', 2).join(' ') }}</h3>
-    <h4 class="text-sm">{{ product.category.name }}</h4>
-    <p class="text-[#A2AF9B]">{{ product.price }} EGP</p>
+    <h3 class="text-lg">{{ product.title | term : 2}}</h3>
+    <h4 class="text-sm">{{ product.category.name}}</h4>
+    <p class="text-[#A2AF9B]">{{ product.price | currency: 'EGP'}} </p>
   </div>
 
   <div class="text-[12px] text-[#415E72] mt-3 flex justify-between">
@@ -113,7 +113,7 @@
 <div class="card text-center" [class.w-[275px]]="activeCategory !== 'all'">
   <img class="w-3/4 mx-auto translate-y-[-18%] h-[220px] w-[67%]" [src]="category.image" [alt]="category.name" />
   <h3 class="text-lg">{{ category.name }}</h3>
-  <p class="text-[#A2AF9B]">{{ category.price }} EGP</p>
+  <p class="text-[#A2AF9B]">{{ category.price | currency: 'EGP' }} </p>
 
   <div class="text-[12px] text-[#415E72] mt-3 flex justify-between">
     <button class="bottom-style">

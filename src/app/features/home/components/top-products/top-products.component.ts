@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { IProduct } from '../../../../core/interfaces/Iproduct.interface';
 import { ProductsService } from '../../../../core/services/products/products.service';
 import { CardComponent } from "../../../../shared/components/card/card.component";
-import { CommonModule } from '@angular/common';
+import { CommonModule, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-top-products',

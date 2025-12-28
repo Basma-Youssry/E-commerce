@@ -1,1 +1,107 @@
-<p>register works!</p>
+<section class="registerPage scale-80 md:scale-85">
+    <div class="container grid grid-cols-12">
+
+        <div class="register-form col-span-12 md:col-span-6 py-20 px-17 bg-[#EEEEEE]">
+
+            <div class="register-caption">
+                <h2 class="text-gray-800 text-[22px] font-bold">Create an Account</h2>
+                <p class="text-[#aaa095] text-[14px]">Create a new account</p>
+            </div>
+            <form [formGroup]="registerFrom" class="mt-[20px]" (ngSubmit)="submitForm()">
+                <!-- Ruesable component -->
+                <app-input [control]="registerFrom.get('name')" [typeInput]="'text'" [idInput]="'name'"
+                    [labelInput]="'Name'"></app-input>
+                <app-input [control]="registerFrom.get('email')" [typeInput]="'email'" [idInput]="'email'"
+                    [labelInput]="'Email'"></app-input>
+                <app-input [control]="registerFrom.get('password')" [idInput]="'password'"
+                    [labelInput]="'Password'">
+                    Custom field should match
+                </app-input>
+                <app-input [control]="registerFrom.get('rePassword')" [idInput]="'rePassword'"
+                    [labelInput]="'ConfirmPassword'"></app-input>
+                <app-input [control]="registerFrom.get('phone')" [typeInput]="'tel'" [idInput]="'phone'"
+                    [labelInput]="'Phone'">
+                Accept only Egypt phone numbers
+            </app-input>
+                <label for="remember" class="flex items-center mb-5 cursor-pointer">
+                    <input id="remember" type="checkbox" value="" class="
+                        w-4 h-4 
+                        border border-[#A2AF9B]      /* visible border */
+                        rounded-xs 
+                        bg-neutral-secondary-medium 
+                        checked:bg-[#A2AF9B]         /* background when checked */
+                        checked:border-[#A2AF9B]     /* border when checked */
+                        focus:ring-2 focus:ring-[#A2AF9B] /* focus ring */
+                        text-[#A2AF9B]               /* checkmark color */
+                        cursor-pointer
+                        transition-colors duration-150
+                    " required />
+                    <p class="ms-2 text-[13px] font-medium text-heading select-none">
+                        I agree with the
+                        <a href="#" class="text-fg-brand underline text-[#A2AF9B]">terms and conditions</a>
+                    </p>
+                </label>
+                <button type="submit"
+                    class="text-white w-full bg-[#DCCFC0] box-border cursor-pointer rounded-xl border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-[17px] px-4 py-2.5 focus:outline-none">Sign
+                    Up
+                    @if(isLoading){
+                    <span><i class="fas fa-spinner animate-spin"></i></span>
+                    }
+
+                </button>
+
+                @if(msgError){
+                <p class="text-red-800 text-center mt-5">{{msgError}}</p>
+                }
+            </form>
+            <div class="signUp-icons text-center my-3">
+                <p class="text-[13px] text-[#aaa095]">Or sign up with</p>
+                <div class="flex justify-center gap-4 mt-5">
+                    <!-- Google Icon (multi-color) -->
+                    <a href="#">
+                        <svg class="w-6 h-6 cursor-pointer" viewBox="0 0 533.5 544.3">
+                            <path fill="#4285F4"
+                                d="M533.5 278.4c0-17.8-1.6-35-4.6-51.7H272v97.9h146.9c-6.3 33.9-25 62.7-53.3 82v68.1h86.1c50.3-46.3 79.8-114.9 79.8-196.3z" />
+                            <path fill="#34A853"
+                                d="M272 544.3c72.9 0 134.2-24.2 178.9-65.7l-86.1-68.1c-24.2 16.2-55.4 25.7-92.8 25.7-71.5 0-132.2-48.1-153.9-112.8H31.3v70.7C76.2 484 168.1 544.3 272 544.3z" />
+                            <path fill="#FBBC05"
+                                d="M118.1 325.9c-10.4-30.6-10.4-63.4 0-94l-86-70.7C9.6 193.6 0 232.4 0 272s9.6 78.4 32.1 110.8l86-70.7z" />
+                            <path fill="#EA4335"
+                                d="M272 107.7c38.6 0 73.2 13.3 100.5 39.3l75.2-75.2C406.2 24.4 344.9 0 272 0 168.1 0 76.2 60.3 31.3 152.7l86 70.7c21.7-64.7 82.4-112.8 154.7-112.8z" />
+                        </svg>
+
+                    </a>
+
+                    <!-- Facebook Icon (blue) -->
+                    <a href="#">
+                        <i class="fa-brands fa-facebook text-2xl text-blue-700"></i>
+                    </a>
+
+                    <!-- Apple Icon (black) -->
+                    <a href="#">
+                        <i class="fa-brands fa-apple text-2xl"></i>
+
+                    </a>
+                </div>
+            </div>
+            <div class="text-center text-[15px] text-gray-400">already have an account? <a routerLink="/login"
+                    class="text-[#A2AF9B] underline cursor-pointer">Log In</a></div>
+        </div>
+
+        <!-- <div class="img-layer"> -->
+        <div class="img-container col-span-6 relative hidden md:block">
+            <img class="h-full w-full"
+                src="/images/pattern-knit-crochet-kids-sweater-autumn-winter-katia-8030-426-g.jpg" alt="">
+
+            <div class="layer text-center flex flex-col items-center justify-end">
+                <div class="layer-content translate-y-[-80px] text-white">
+                    <p class="text-xl font-bold">Welcome to Shppvia</p>
+                    <p class="text-[12.5px]">Discover products you love,<br>at price you deserve...</p>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- </div> -->
+    </div>
+</section>
