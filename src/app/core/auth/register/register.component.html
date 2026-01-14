@@ -10,17 +10,17 @@
             <form [formGroup]="registerFrom" class="mt-[20px]" (ngSubmit)="submitForm()">
                 <!-- Ruesable component -->
                 <app-input [control]="registerFrom.get('name')" [typeInput]="'text'" [idInput]="'name'"
-                    [labelInput]="'Name'"></app-input>
+                    [labelInput]="'Name'" [placeholder]="'Ahmed'"></app-input>
                 <app-input [control]="registerFrom.get('email')" [typeInput]="'email'" [idInput]="'email'"
-                    [labelInput]="'Email'"></app-input>
+                    [labelInput]="'Email'" [placeholder]="'Ahmed@gmail.com'"></app-input>
                 <app-input [control]="registerFrom.get('password')" [idInput]="'password'"
-                    [labelInput]="'Password'">
+                    [labelInput]="'Password'" [placeholder]="'xxxxxxxxxxxx'">
                     Custom field should match
                 </app-input>
                 <app-input [control]="registerFrom.get('rePassword')" [idInput]="'rePassword'"
-                    [labelInput]="'ConfirmPassword'"></app-input>
+                    [labelInput]="'ConfirmPassword'" [placeholder]="'xxxxxxxxxxxx'"></app-input>
                 <app-input [control]="registerFrom.get('phone')" [typeInput]="'tel'" [idInput]="'phone'"
-                    [labelInput]="'Phone'">
+                    [labelInput]="'Phone'" [placeholder]="'01030547893'">
                 Accept only Egypt phone numbers
             </app-input>
                 <label for="remember" class="flex items-center mb-5 cursor-pointer">

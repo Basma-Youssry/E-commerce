@@ -25,10 +25,8 @@ getAllProductsData(): void{
 
       console.log(this.allProducts);
       
-    },
-    error: (err) => {
-      console.log(err);
     }
+    // Handling Errors inside Interceptop
   });
 }
 }

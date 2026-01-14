@@ -1,0 +1,87 @@
+<section class="cart bg-[#EEEEEE]">
+    <div class="container grid sm:grid-cols-12 gap-3">
+
+        <div class="col-span-8">
+            <div class="cart-caption flex items-center space-x-4">
+                <h2 class="head text-gray-700">Cart</h2>
+                <span class="font-[500] text-[18px] text-[#A2AF9B]">{{cartDetails.products.length}} items</span>
+            </div>
+            @for (item of cartDetails.products; track item._id) {
+            <div class="grid sm:grid-cols-12 gap-7 bg-white mb-3">
+                <div class="col-span-2">
+                    <div class="cart-img h-full">
+                        <img [src]="item.product.imageCover" class="w-full h-full rounded-[8px]" [alt]="item.product.title">
+                    </div>
+                </div>
+                <div class="col-span-10">
+                    <div class="cart-info h-full flex justify-between items-center py-5">
+                        <div class="cart-details">
+                            <p class="text-xl mb-3 text-gray-800">{{item.product.title}}</p>
+                            <div class="flex items-center space-x-5">
+                                <div
+                                    class="cart-btn flex items-center justify-between  w-[159px] h-[52px] p-4 bg-[#EEEEEE] border rounded-[4px] border-[#D1D1D8]">
+                                    <button (click)="updateCartProduct(item.product._id, item.count - 1)"><i class="fas fa-minus text-[12px] cursor-pointer"></i></button>
+                                    <span class="text-[20px]">{{item.count}}</span>
+                                    <button (click)="updateCartProduct(item.product._id, item.count + 1)"><i class="fas fa-plus text-[12px] cursor-pointer"></i></button>
+                                </div>
+
+                                <button (click)="removeItem(item.product._id)"><i class="fas fa-trash-can text-[#A2AF9B] cursor-pointer"></i></button>
+                            </div>
+
+                        </div>
+                        <span class="text-[20px] font-[600] text-gray-800 me-2">{{item.price * item.count | currency: 'EGP'}}</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="text-[#D1D1D8] mb-4">
+            }
+
+        </div>
+
+        <div class="col-span-4">
+            <div class="price-info border border-1 border-solid border-[#D1D1D8] bg-white p-[32px] rounded-[10px]">
+                <div class="order-summary mb-6 border-b-1 border-solid border-[#D1D1D8]">
+                    <h3 class="text-[24px] mb-5 text-gray-600 font-[500]">Order Summary</h3>
+                    <div class="flex items-center justify-between mb-3 text-gray-800">
+                        <p>Price</p>
+                        <span>{{cartDetails.totalCartPrice | currency: 'EGP'}}</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-3 text-gray-800">
+                        <p>Discount</p>
+                        <span>500 EGP</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-3 text-gray-800">
+                        <p>Shipping</p>
+                        <span>Free</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-3 text-gray-800">
+                        <p>Coupon Applied</p>
+                        <span>0.00EGP</span>
+                    </div>
+                </div>
+                <div class="total">
+                    <div class="flex items-center justify-between mb-5 text-gray-800">
+                        <p class="font-[600]">Total</p>
+                        <span>{{cartDetails.totalCartPrice - 500 | currency: 'EGP'}}</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-4 text-gray-800">
+                        <p class="font-[500]">Estimated Delivery by</p>
+                        <span class="font-[600]">01 Aug, 2025</span>
+                    </div>
+                    <div class="relative h-[56px] mb-4">
+                        <input
+                            class="border-[#D1D1D8] rounded-[10px] w-full h-full focus:outline-none focus:ring-2 focus:ring-[#DCCFC0]"
+                            type="text" placeholder="Coupon Code">
+                        <button
+                            class="bg-[#A2AF9B] rounded-[8px] p-[12px] absolute right-[8px] top-1/2 -translate-y-1/2 h-[40px] font-[600] cursor-pointer flex items-center text-white">Apply</button>
+                    </div>
+                    <button [routerLink]="['/check-out', cartDetails._id]"
+                        class="bg-[#A2AF9B] p-[8px] rounded-[32px] text-white font-[600] h-[58px] w-full cursor-pointer">Proceed
+                        to Checkout</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>

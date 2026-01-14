@@ -5,6 +5,7 @@ import { CardComponent } from '../../shared/components/card/card.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchPipe } from '../../shared/pipes/search-pipe';
 import { FormsModule } from '@angular/forms';
+import { NgxSpinnerComponent, NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-products',
@@ -21,7 +22,6 @@ total!:number;
 item:string = "";
 
   private readonly  productsService = inject(ProductsService);
-
 ngOnInit(): void {
   this.getAllProductsData();
 }
@@ -35,10 +35,6 @@ getAllProductsData(pageNumber:number = 1): void{
       this.p = res.metadata.currentPage;
       this.total = res.results;
       // console.log(this.allProducts);
-      
-    },
-    error: (err) => {
-      console.log(err);
     }
   });
 }

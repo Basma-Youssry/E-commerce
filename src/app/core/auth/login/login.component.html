@@ -4,16 +4,16 @@
         <div class="login-form col-span-12 md:col-span-6 py-20 px-17 bg-[#EEEEEE]">
 
             <div class="login-caption">
-                <h2 class="text-gray-800 text-[22px] font-bold">Create an Account</h2>
-                <p class="text-[#aaa095] text-[14px]">Create a new account</p>
+                <h2 class="text-gray-800 text-[22px] font-bold">Welcome Back</h2>
+                <p class="text-[#aaa095] text-[14px]">Please Login or sign up to continue our app</p>
             </div>
             <form [formGroup]="loginFrom" class="mt-[20px]" (ngSubmit)="submitForm()">
 
                 <!-- Reusable component(input) -->
                 <app-input [control]="loginFrom.get('email')" [typeInput]="'email'" [idInput]="'email'"
-                    [labelInput]="'Email'"></app-input>
+                    [labelInput]="'Email'" [placeholder]="'Ahmed@gmail.com'"></app-input>
                 <app-input [control]="loginFrom.get('password')" [idInput]="'password'"
-                    [labelInput]="'Password'"></app-input>       
+                    [labelInput]="'Password'" [placeholder]="'xxxxxxxxxxxx'"></app-input>       
                     
                 <div class="flex items-center justify-between my-4">
                     <!-- Remember Me -->
@@ -23,9 +23,9 @@
                         <span class="text-sm text-gray-700">Remember me</span>
                     </label>
 
-                    <!-- Forgot password -->
-                    <a href="#" class="text-sm text-[#A2AF9B] hover:underline">
-                        Forgot password?
+                    <!-- Forget password -->
+                    <a routerLink="/forgetpassword" class="text-sm text-[#A2AF9B] hover:underline">
+                        Forget password?
                     </a>
                 </div>
 

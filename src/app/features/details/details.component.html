@@ -33,8 +33,10 @@
                 </span>
                 <p class="my-[14px] text-gray-800 text-[23px] font-bold">{{productDetails.title}}</p>
                 <p class="text-sm text-[#aaa095] mb-[14px]">{{productDetails.description}}</p>
+               
                 <div class="QuantityPrice mt-20">
-                    <p class="text-[13px] mb-2 text-gray-800 font-bold">Quantity: <span class="text-[#A2AF9B]">01</span>
+                     @if(carItem){
+                     <p class="text-[13px] mb-2 text-gray-800 font-bold">Quantity: <span class="text-[#A2AF9B]">{{carItem.count}}</span>
                     </p>
                     <div class="details-btns flex items-center mb-[30px]">
                         <!-- <button
@@ -43,29 +45,34 @@
                         </button> -->
                         <button class="me-2 w-40 cursor-pointer border border-[#A2AF9B] rounded-lg px-[14px] py-[2px]
                           flex items-center justify-between text-xl text-[#aaa095]">
-                            <!-- MINUS SVG -->
-                            <span class="w-8 h-8 flex items-center justify-center">
+                           
+                        <!-- @for (item of cartDetails.products; track item.product._id) { -->
+                             <!-- MINUS SVG -->
+                            <span (click)="updateCartProductCount(carItem.product._id, carItem.count - 1)"   class="w-8 h-8 flex items-center justify-center">
                                 <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
                                     <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                                 </svg>
                             </span>
+                              <!-- NUMBER -->
+                            <span class="text-gray-800 text-[16px]">{{carItem.count}}</span>
 
-                            <!-- NUMBER -->
-                            <span class="text-gray-800 text-[16px]">1</span>
-
-                            <!-- PLUS SVG -->
-                            <span class="w-8 h-8 flex items-center justify-center">
+                             <!-- PLUS SVG -->
+                            <span (click)="updateCartProductCount(carItem.product._id, carItem.count + 1)" class="w-8 h-8 flex items-center justify-center">
                                 <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true">
                                     <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" />
                                 </svg>
                             </span>
+                        <!-- } -->
+                          
                         </button>
-                        <button
+                        <button (click)="getProductCartData(productDetails._id)"
                             class="bg-[#A2AF9B] w-[68%]  py-[9.5px] text-[13px] rounded-[9px] text-white cursor-pointer">
                             {{productDetails.price}} EG . Add to cart
                         </button>
                     </div>
+                }
+                   
 
                 </div>
                 <div class="delivery-time mt-10">

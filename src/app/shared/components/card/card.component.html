@@ -92,11 +92,18 @@
     <img class="w-3/4 mx-auto -translate-y-1/5 h-[220px] w-[67%]" [src]="product.imageCover" [alt]="product.title" />
     <h3 class="text-lg">{{ product.title | term : 2}}</h3>
     <h4 class="text-sm">{{ product.category.name}}</h4>
-    <p class="text-[#A2AF9B]">{{ product.price | currency: 'EGP'}} </p>
+    <!-- Normal product component price -->
+    @if (!showOrderData) {
+      <p class="text-[#A2AF9B]">{{ product.price | currency: 'EGP'}} </p>
+    }
+    <!-- Price for all orders component -->
+    @if (showOrderData) {
+      <p class="text-[#A2AF9B]">{{ price | currency: 'EGP'}} </p>
+    }
   </div>
 
   <div class="text-[12px] text-[#415E72] mt-3 flex justify-between">
-    <button class="bottom-style">
+    <button class="bottom-style" (click)="getProductCartData(product._id)">
       <i class="fa-solid fa-plus"></i>
     </button>
 

@@ -2,10 +2,11 @@ import { Component, signal, OnInit, afterNextRender, inject, PLATFORM_ID } from 
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from "./shared/components/footer/footer.component";
 import { isPlatformBrowser } from '@angular/common';
+import { NgxSpinnerComponent } from "ngx-spinner";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FooterComponent],
+  imports: [RouterOutlet, FooterComponent, NgxSpinnerComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

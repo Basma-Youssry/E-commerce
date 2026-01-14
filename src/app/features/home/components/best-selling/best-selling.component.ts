@@ -40,10 +40,8 @@ export class BestSellingComponent implements OnInit {
           price: staticPrices[index % staticPrices.length] 
         }));
 
-      },
-      error: (err) => {
-        console.log(err);
       }
+      // Handling Errors inside Interceptop
     })
   }
 

@@ -1,0 +1,40 @@
+<section class="all-orders">
+    <div class="container">
+        <h2 class="head text-[#364153] mb-13">All Orders</h2>
+
+        <div class="orders">
+            @for (order of orders; let i = $index; track $index) {
+            <div class="order bg-[#EEEEEE] px-5 py-8 rounded rounded-xl mb-4">
+                <div class="order-head mb-19">
+                    <h3 class="text-[20px] font-[600] text-[#A2AF9B] mb-2">Order {{i + 1}}</h3>
+                    <span class="text-gray-700">{{order.createdAt | date:'dd MMM yyyy, hh:mm a'}}</span>
+                </div>
+                <div class="order-products my-10 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-20">
+                    <!-- Loop on products inside order -->
+                    @for (item of order.cartItems; track $index) {
+                    <app-card [product]="item.product" [price]="item.price" [showOrderData]="true"></app-card>
+                    }
+                </div>
+                <div class="order-details">
+                    <h5 class="text-gray-700 text-[18px] font-bold mb-2">{{order.user.name}}</h5>
+                    <h6 class="text-gray-900 font-bold">Shepping Details:</h6>
+                    <ul class="text-gray-900 text-[15px]">
+                        <li>{{order.shippingAddress.city}}</li>
+                        <li>{{order.shippingAddress.details}}</li>
+                        <li>{{order.shippingAddress.phone}}</li>
+                    </ul>
+                    <p class="my-2 text-gray-900 font-[600]">paymentMethodType: <span class="text-gray-600">{{order.paymentMethodType}}</span></p>
+                    <p class="text-gray-900 font-bold">Total Order Price: <span class="text-[#A2AF9B]">{{order.totalOrderPrice | currency:'EGP'}}</span></p>
+                </div>
+            </div>
+            }
+            <button routerLink="/home" class="bg-[#A2AF9B] rounded-xl text-white px-5 py-3 cursor-pointer">  
+                    Back to Home Page
+            </button>
+        </div>
+        
+    </div>
+
+
+
+</section>

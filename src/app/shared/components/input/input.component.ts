@@ -12,6 +12,8 @@ export class InputComponent {
   @Input() typeInput!: string;
   @Input() idInput!: string;
   @Input() labelInput!: string;
-
+  @Input() element:string = 'input';
+  @Input() placeholder:string = "";
+  @Input() readonly = false;
   flag:boolean = true;
 }

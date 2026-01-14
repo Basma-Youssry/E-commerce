@@ -5,12 +5,23 @@
                     }" class="block mb-2.5 text-heading text-gray-800 text-[13px] font-bold">User
         {{labelInput}}</label>
     <div class="relative">
-        <input [class]="{
+        @if (element === 'input') {
+             <input [class]="{
                         'border-green-900': control?.valid,
                         'border-red-900': control?.invalid && control?.touched
-                    }" [formControl]="control" [type]="typeInput || (flag? 'Password': 'text')" [id]="idInput"
+                    }" [formControl]="control" [type]="typeInput || (flag? 'Password': 'text')" [id]="idInput" [placeholder]="placeholder" [readonly]="readonly"
             class="register-input focus:!ring-2 focus:!ring-[#DCCFC0]  bg-neutral-secondary-medium text-heading text-sm rounded-[5px] w-full px-3 py-2.5 placeholder:text-body outline-none"
             required />
+        }@else if (element === 'text') {
+            <textarea [class]="{
+                        'border-green-900': control?.valid,
+                        'border-red-900': control?.invalid && control?.touched
+                    }" [formControl]="control" [id]="idInput"
+            class="register-input focus:!ring-2 focus:!ring-[#DCCFC0]  bg-neutral-secondary-medium text-heading text-sm rounded-[5px] w-full px-3 py-2.5 placeholder:text-body outline-none"
+            required></textarea>
+        }
+       
+            
         @if(idInput === "password" || idInput === "rePassword"){
         <span (click)="flag = !flag">
             @if (flag) {
