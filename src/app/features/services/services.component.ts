@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Highlight } from "../../shared/directives/highlight";
+import { Popup } from "../../shared/directives/popup";
 
 @Component({
   selector: 'app-services',

@@ -1,6 +1,5 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, throwError } from 'rxjs';
 
@@ -15,4 +14,5 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
       return throwError(()=> err);
     })
   );
+  
 };

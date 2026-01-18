@@ -59,10 +59,6 @@ export class CheckoutComponent implements OnInit{
           next:(res)=>{
             console.log(res);
             window.open(res.session.url, '_self')
-          },
-          error:(err)=>{
-            console.log(err);
-            
           }
         })        
 
@@ -70,9 +66,6 @@ export class CheckoutComponent implements OnInit{
         this.cartService.createCashOrder(this.id, this.checkOutForm.value).subscribe({
           next:(res)=>{
             console.log(res);
-          },
-          error:(err)=>{
-            console.log(err);
           }
         })        
       }
