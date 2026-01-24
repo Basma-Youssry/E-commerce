@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, inject, OnInit, PLATFORM_ID, signal, WritableSignal } from '@angular/core';
 import { AuthService } from '../../core/auth/service/auth.service';
 import { CurrencyPipe, DatePipe, isPlatformBrowser } from '@angular/common';
 import { JwtPayload } from 'jwt-decode';
@@ -19,8 +19,13 @@ private readonly authService= inject(AuthService);
 private readonly cartService= inject(CartService);
 private readonly plateFormId= inject(PLATFORM_ID);
 
-userId: string | null = null; // store user ID
-orders:any;
+//Signals syntax
+userId:WritableSignal<string | null> = signal(null);
+orders:WritableSignal<any> = signal(null);
+
+//Zone.js syntax
+// userId: string | null = null; // store user ID
+// orders:any;
 
 ngOnInit(): void {
   this.getUserId();
@@ -32,24 +37,24 @@ getUserId():void{
     
    const decodeToken:any = this.authService.decodeToken();
 
-   this.userId = decodeToken ? decodeToken.userId || decodeToken.id : null;
+   this.userId.set(decodeToken ? decodeToken.userId || decodeToken.id : null);
 
-   console.log("User ID:", this.userId);
+  //  console.log("User ID:", this.userId());
    
   }
 }
 getUserallOrders():void{
-  this.cartService.getUserOrders(this.userId).subscribe({
+  this.cartService.getUserOrders(this.userId()).subscribe({
     next:(res)=>{
-      this.orders = res;
+      this.orders.set(res);
       
       console.log(res);
       
-    },
-    error:(err)=>{
-      console.log(err);
-      
     }
+    // error:(err)=>{
+    //   console.log(err);
+      
+    // }
   })
 }
 }

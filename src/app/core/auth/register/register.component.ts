@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms"
 import { AuthService } from '../service/auth.service';
@@ -13,16 +13,31 @@ import { InputComponent } from "../../../shared/components/input/input.component
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
   private readonly authService= inject(AuthService);
   private readonly router= inject(Router);
   private readonly  fb= inject(FormBuilder);
 
-  msgError:string = '';
-  isLoading:boolean = false;
-  subscription: Subscription = new Subscription();
-  flag:boolean = true;
+
+//Signals syntax
+msgError:WritableSignal<string> = signal('');
+isLoading:WritableSignal<boolean> = signal(false);
+subscription:WritableSignal<Subscription> = signal(new Subscription());
+flag:WritableSignal<boolean> = signal(true);
+registerFrom:WritableSignal<FormGroup> = signal(this.fb.group({
+    name: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+    email: [null, [Validators.required, Validators.email]],
+    password: [null, [Validators.required, Validators.pattern(/^\w{6,}$/)]],
+    rePassword: [null, [Validators.required]],
+    phone: [null, [Validators.required, Validators.pattern(/^01[0-9]{9}$/)]]
+  }, {validators: this.confirmPassword}));
+
+//Zone.js syntax
+  // msgError:string = '';
+  // isLoading:boolean = false;
+  // subscription: Subscription = new Subscription();
+  // flag:boolean = true;
 
   // registerFrom: FormGroup = new FormGroup({
   //   name: new FormControl(null, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]),
@@ -33,35 +48,35 @@ export class RegisterComponent implements OnInit {
   // }, {validators: this.confirmPassword})
 
   //Easy syntax
-  registerFrom!: FormGroup;
+  // registerFrom!: FormGroup;
 
-  ngOnInit(): void {
-    this.fromInit();
-  }
-  fromInit(): void{
-   this.registerFrom =  this.fb.group({
-    name: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
-    email: [null, [Validators.required, Validators.email]],
-    password: [null, [Validators.required, Validators.pattern(/^\w{6,}$/)]],
-    rePassword: [null, [Validators.required]],
-    phone: [null, [Validators.required, Validators.pattern(/^01[0-9]{9}$/)]]
-  }, {validators: this.confirmPassword})
-  }
+  // ngOnInit(): void {
+  //   this.fromInit();
+  // }
+  // fromInit(): void{
+  //  this.registerFrom.set(this.fb.group({
+  //   name: [null, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+  //   email: [null, [Validators.required, Validators.email]],
+  //   password: [null, [Validators.required, Validators.pattern(/^\w{6,}$/)]],
+  //   rePassword: [null, [Validators.required]],
+  //   phone: [null, [Validators.required, Validators.pattern(/^01[0-9]{9}$/)]]
+  // }, {validators: this.confirmPassword}))
+  // }
   submitForm(): void {
-    if(this.registerFrom.valid){
+    if(this.registerFrom().valid){
 
-      this.subscription.unsubscribe();
+      this.subscription().unsubscribe();
     
-      this.isLoading = true;
+      this.isLoading.set(true);
 
-  this.subscription = this.authService.registerForm(this.registerFrom.value).subscribe({
+  this.subscription.set(this.authService.registerForm(this.registerFrom().value).subscribe({
         next: (res)=>{
           if(res.message === 'success'){
             //Navigate to login
             // console.log(res);
-            this.isLoading = false;
+            this.isLoading.set(false);
             
-            this.msgError = '';
+            this.msgError.set('');
             setTimeout(() => {
               this.router.navigate(['/login']);
             }, 1000);
@@ -69,15 +84,15 @@ export class RegisterComponent implements OnInit {
         },
         error:(err)=>{
           // console.log(err.error.message);
-          this.msgError = err.error.message;
-          this.isLoading = false;
+          this.msgError.set(err.error.message);
+          this.isLoading.set(false);
 
         }
-      })
+      }))
     }else{
       // this.registerFrom.setErrors({mismatch:true});
-      this.registerFrom.get('rePassword')?.patchValue('');
-      this.registerFrom.markAllAsTouched();
+      this.registerFrom().get('rePassword')?.patchValue('');
+      this.registerFrom().markAllAsTouched();
     }
   }
 

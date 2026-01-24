@@ -86,41 +86,42 @@
 
 
 <!-- Product Card   (This code after cleaning) -->
-@if (product) {
+@if (product(); as p) {
 <div class="card text-center h-full">
-  <div [routerLink]="['/details',product.slug ,product.id]">
-    <img class="w-3/4 mx-auto -translate-y-1/5 h-[220px] w-[67%]" [src]="product.imageCover" [alt]="product.title" />
-    <h3 class="text-lg">{{ product.title | term : 2}}</h3>
-    <h4 class="text-sm">{{ product.category.name}}</h4>
+  <div [routerLink]="['/details',p.slug ,p.id]">
+    <img class="w-3/4 mx-auto -translate-y-1/5 h-[220px] w-[67%]" [src]="p.imageCover" [alt]="p.title" />
+    <h3 class="text-lg">{{ p.title | term : 2}}</h3>
+    <h4 class="text-sm">{{ p.category.name}}</h4>
     <!-- Normal product component price -->
-    @if (!showOrderData) {
-      <p class="text-[#A2AF9B]">{{ product.price | currency: 'EGP'}} </p>
+    @if (!showOrderData()) {
+    <p class="text-[#A2AF9B]">{{ p.price | currency: 'EGP'}} </p>
     }
     <!-- Price for all orders component -->
-    @if (showOrderData) {
-      <p class="text-[#A2AF9B]">{{ price | currency: 'EGP'}} </p>
+    @if (showOrderData()) {
+    <p class="text-[#A2AF9B]">{{ price() | currency: 'EGP'}} </p>
     }
   </div>
 
   <div class="text-[12px] text-[#415E72] mt-3 flex justify-between">
-    <button class="bottom-style" (click)="getProductCartData(product._id)">
+    <button class="bottom-style" (click)="getProductCartData(p._id)">
       <i class="fa-solid fa-plus"></i>
     </button>
 
     <span class="flex items-center gap-1">
       <i class="fa-solid fa-star text-yellow-400"></i>
-      {{ product.ratingsAverage }}
+      {{ p.ratingsAverage }}
     </span>
   </div>
 </div>
 }
 
 <!-- Category Card -->
-@if (category && (categoryName === ' ' || categoryName === category.name)) {
-<div class="card text-center" [class.w-[275px]]="activeCategory !== 'all'">
-  <img class="w-3/4 mx-auto translate-y-[-18%] h-[220px] w-[67%]" [src]="category.image" [alt]="category.name" />
-  <h3 class="text-lg">{{ category.name }}</h3>
-  <p class="text-[#A2AF9B]">{{ category.price | currency: 'EGP' }} </p>
+@if (category(); as c) {
+@if((categoryName() === '' || categoryName() === c.name)){
+<div class="card text-center" [class.w-[275px]]="activeCategory() !== 'all'">
+  <img class="w-3/4 mx-auto translate-y-[-18%] h-[220px] w-[67%]" [src]="c.image" [alt]="c.name" />
+  <h3 class="text-lg">{{ c.name }}</h3>
+  <p class="text-[#A2AF9B]">{{ c.price | currency: 'EGP' }} </p>
 
   <div class="text-[12px] text-[#415E72] mt-3 flex justify-between">
     <button class="bottom-style">
@@ -128,4 +129,6 @@
     </button>
   </div>
 </div>
+}
+
 }

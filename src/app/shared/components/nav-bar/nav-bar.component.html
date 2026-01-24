@@ -1,98 +1,101 @@
 <nav class="bg-[#EEEEEE] fixed right-0 left-0 z-50  border-gray-200 dark:bg-[#17313E]">
     <!-- <div class="container"> -->
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2">
-            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <h1 class="text-[#A2AF9B] self-center text-2xl font-semibold whitespace-nowrap dark:text-[#F3E2D4]">
-                    Shoppvia
-                </h1>
-            </a>
-            <button data-collapse-toggle="navbar-default" type="button"
-                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                aria-controls="navbar-default" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                    viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M1 1h15M1 7h15M1 13h15" />
-                </svg>
-            </button>
-            <div class="hidden grow w-full md:flex md:align-items-center md:w-auto" id="navbar-default">
-                @if(isLogin === true){
-                <ul
-                    class="font-medium grow-[2] flex flex-col justify-end p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-6 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800  dark:border-gray-700">
-                    <li>
-                        <a routerLink="/home" routerLinkActive="text-active"
-                            class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm  md:p-0 dark:text-[#F3E2D4]"
-                            aria-current="page">Home</a>
-                    </li>
-                    <li>
-                        <a routerLink="/services" routerLinkActive="text-active"
-                            class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                            aria-current="page">Services</a>
-                    </li>
-                    <li>
-                        <a routerLink="/products" routerLinkActive="text-active"
-                            class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                            aria-current="page">Products</a>
-                    </li>
-                    <li>
-                        <a routerLink="/about-us" routerLinkActive="text-active"
-                            class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                            aria-current="page">About Us</a>
-                    </li>
-                    <li>
-                        <a routerLink="/blog" routerLinkActive="text-active"
-                            class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                            aria-current="page">Blog</a>
-                    </li>
-                    <li>
-                        <a routerLink="/contact-us" routerLinkActive="text-active"
-                            class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                            aria-current="page">Contact Us</a>
-                    </li>
-                </ul>
-                <ul
-                    class="font-medium grow flex flex-col justify-end p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800  dark:border-gray-700">
-                    <li>
-                        <a routerLink="/"
-                            class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                            aria-current="page"><i class="fa-solid fa-heart"></i></a>
-                    </li>
-                    <li>
-                        <a routerLink="/cart" routerLinkActive="text-gray-600"
-                            class="active block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                            aria-current="page"><i class="fa-solid fa-cart-shopping"></i></a>
-                    </li>
-                    <li>
-                        <a routerLink="/"
-                            class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                            aria-current="page"><i class="fa-solid fa-user"></i></a>
-                    </li>
-                </ul>
-                }
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2">
+        <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <h1 class="text-[#A2AF9B] self-center text-2xl font-semibold whitespace-nowrap dark:text-[#F3E2D4]">
+                Shoppvia
+            </h1>
+        </a>
+        <button data-collapse-toggle="navbar-default" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+        </button>
+        <div class="hidden grow w-full md:flex md:align-items-center md:w-auto" id="navbar-default">
+            @if(isLogin === true){
+            <ul
+                class="font-medium grow-[2] flex flex-col justify-end p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-6 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800  dark:border-gray-700">
+                <li>
+                    <a routerLink="/home" routerLinkActive="text-active"
+                        class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a routerLink="/services" routerLinkActive="text-active"
+                        class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">Services</a>
+                </li>
+                <li>
+                    <a routerLink="/products" routerLinkActive="text-active"
+                        class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">Products</a>
+                </li>
+                <li>
+                    <a routerLink="/about-us" routerLinkActive="text-active"
+                        class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">About Us</a>
+                </li>
+                <li>
+                    <a routerLink="/blog" routerLinkActive="text-active"
+                        class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">Blog</a>
+                </li>
+                <li>
+                    <a routerLink="/contact-us" routerLinkActive="text-active"
+                        class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">Contact Us</a>
+                </li>
+            </ul>
+            <ul
+                class="font-medium grow flex flex-col justify-end p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800  dark:border-gray-700">
+                <li>
+                    <a routerLink="/"
+                        class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page"><i class="fa-solid fa-heart"></i></a>
+                </li>
+                <li>
+                    <a routerLink="/cart" routerLinkActive="text-gray-600"
+                        class="active relative block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page"><i class="fa-solid fa-cart-shopping"></i>
+                        <span
+                            class="absolute left-[12px] bottom-[10px] text-[13px] bg-[#958676] rounded-3xl px-[2px] text-center hover:text-[#A2AF9B]">{{count()}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/"
+                        class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page"><i class="fa-solid fa-user"></i></a>
+                </li>
+            </ul>
+            }
 
-                <ul
-                    class="font-medium flex flex-col grow justify-end  p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800  dark:border-gray-700">
-                    @if(isLogin === false){
-                    <li>
-                        <a routerLink="/login"
-                            class="block font-bold py-2 px-3 text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                            aria-current="page">Login</a>
-                    </li>
-                    <li>
-                        <a routerLink="/register"
-                            class="block font-bold py-2 px-3 text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                            aria-current="page">Register</a>
-                    </li>
-                    }@else {
-                    <li>
-                        <a (click)="signOut()" class="block font-bold cursor-pointer py-2 px-3 text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                            aria-current="page">SignOut</a>
-                    </li>
-                    }
-                </ul>
-            </div>
+            <ul
+                class="font-medium flex flex-col grow justify-end  p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800  dark:border-gray-700">
+                @if(isLogin === false){
+                <li>
+                    <a routerLink="/login"
+                        class="block font-bold py-2 px-3 text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">Login</a>
+                </li>
+                <li>
+                    <a routerLink="/register"
+                        class="block font-bold py-2 px-3 text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">Register</a>
+                </li>
+                }@else {
+                <li>
+                    <a (click)="signOut()"
+                        class="block font-bold cursor-pointer py-2 px-3 text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">SignOut</a>
+                </li>
+                }
+            </ul>
         </div>
+    </div>
     <!-- </div> -->
 
 </nav>

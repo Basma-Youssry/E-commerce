@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductdetailsService } from './services/productdetails.service';
 import { IProduct } from '../../core/interfaces/Iproduct.interface';
@@ -20,9 +20,16 @@ export class DetailsComponent implements OnInit{
   private readonly  productdetailsService = inject(ProductdetailsService);
   private readonly  cartService = inject(CartService);
   private readonly  toastrService = inject(ToastrService);
-  id:string|null = null;
-  productDetails:IProduct = {} as  IProduct;
-  carItem:any;
+
+  //Signal syntax
+  id:WritableSignal<string | null> = signal(null);
+  productDetails: WritableSignal<IProduct> = signal({} as IProduct);
+  carItem:WritableSignal<any> = signal(undefined);
+  
+  //Zone.js syntax
+  // id:string|null = null;
+  // productDetails:IProduct = {} as  IProduct;
+  // carItem:any;
 
   ngOnInit(): void {
     this.getProductId();
@@ -32,7 +39,7 @@ export class DetailsComponent implements OnInit{
   getProductId():void{
     this.activatedRoute.paramMap.subscribe({
       next: (urlParams)=>{
-       this.id = urlParams.get('id');
+       this.id.set(urlParams.get('id'));
 
         console.log( urlParams.get('id'));
       }
@@ -40,9 +47,9 @@ export class DetailsComponent implements OnInit{
   }
 
   getProductDetailsData():void{
-    this.productdetailsService.getProductDetails(this.id).subscribe({
+    this.productdetailsService.getProductDetails(this.id()).subscribe({
       next:(res)=>{
-        this.productDetails = res.data;
+        this.productDetails.set(res.data);
 
         console.log(this.productDetails);
                 
@@ -71,7 +78,7 @@ export class DetailsComponent implements OnInit{
     this.cartService.getLoggedUserCart().subscribe({
       next:(res)=>{
         this.carItem = res.data.products.find(
-          (item:any)=> item.product._id === this.productDetails._id
+          (item:any)=> item.product._id === this.productDetails()._id
         );
 
         console.log(this.carItem);

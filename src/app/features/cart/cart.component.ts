@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { CartService } from './services/cart.service';
 import { Cart } from './models/interfaces/cart.interface';
 import { CurrencyPipe } from '@angular/common';
@@ -14,9 +14,14 @@ import { RouterLink } from "@angular/router";
 export class CartComponent implements OnInit{
   private readonly  cartService= inject(CartService);
 
-  cartDetails:Cart = {} as Cart;
-  
-  cartCount!:number;
+  //Signals syntax
+  cartDetails:WritableSignal<Cart> = signal({} as Cart);
+  // cartCount:WritableSignal<number> = signal(0);
+
+
+  //Zone.js syntax
+  // cartDetails:Cart = {} as Cart;
+  // cartCount!:number;
 
   ngOnInit(): void {
     this.getLoggedUserData();
@@ -25,7 +30,7 @@ export class CartComponent implements OnInit{
   getLoggedUserData():void{
     this.cartService.getLoggedUserCart().subscribe({
       next:(res)=>{
-        this.cartDetails = res.data;
+        this.cartDetails.set(res.data);
         // console.log(this.cartDetails);
         
       }
@@ -37,7 +42,8 @@ export class CartComponent implements OnInit{
   removeItem(id:string):void{
     this.cartService.removeSpecificCartItem(id).subscribe({
       next:(res)=>{
-       this.cartDetails = res.data;        
+        this.cartService.countNumber.set(res.numOfCartItems);
+       this.cartDetails.set(res.data);        
       }
       // Handling Errors inside Interceptop
 
@@ -48,7 +54,7 @@ export class CartComponent implements OnInit{
     this.cartService.updateCartProductCount(id, count).subscribe({
       next: (res)=>{
          
-       this.cartDetails = res.data;
+       this.cartDetails.set(res.data);
          
       }
       // Handling Errors inside Interceptop

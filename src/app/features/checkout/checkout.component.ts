@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputComponent } from "../../shared/components/input/input.component";
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -15,55 +15,67 @@ export class CheckoutComponent implements OnInit{
   private readonly ActivatedRoute = inject(ActivatedRoute);
   private readonly cartService = inject(CartService);
 
-
-
-  checkOutForm!: FormGroup;
-  id: string | null = null;
-  paymentMethod:string = '';
-
-
-  ngOnInit(): void {
-    this.initForm();
-    this.getCartId();
-  }
-
-  initForm():void{
-    this.checkOutForm = this.fb.group({
+//Signals syntax
+checkOutForm:WritableSignal<FormGroup> = signal(this.fb.group({
       shippingAddress: this.fb.group({
         details: [null, [Validators.required]],
         phone: [null, [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)]],
         city:  [null, [Validators.required]]
       })
-    })
+    }));
+
+id:WritableSignal<string | null> = signal(null);
+paymentMethod:WritableSignal<string> = signal('');
+//Zone.js syntax
+  // checkOutForm!: FormGroup;
+  // id: string | null = null;
+  // paymentMethod:string = '';
+
+
+  ngOnInit(): void {
+    // this.initForm();
+    this.getCartId();
   }
+
+  // initForm():void{
+  //   this.checkOutForm = signal(this.fb.group({
+  //     shippingAddress: this.fb.group({
+  //       details: [null, [Validators.required]],
+  //       phone: [null, [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)]],
+  //       city:  [null, [Validators.required]]
+  //     })
+  //   }))
+  // }
 
   getCartId():void{
     this.ActivatedRoute.paramMap.subscribe({
       next: (urlParams)=>{
-       this.id =  urlParams.get('id');
+       this.id.set(urlParams.get('id'))
 
-       console.log(this.id);
+      //  console.log(this.id);
        
-      },
-      error: (err)=>{
-        console.log(err);
       }
+      // error: (err)=>{
+      //   console.log(err);
+      // }
     })
   }
 
   submitForm():void{
-    if(this.checkOutForm.valid){
+    // const form = this.checkOutForm();
+
+    if(this.checkOutForm()?.valid){
       //For Payment button
-      if(this.paymentMethod === 'visa'){
-        this.cartService.checkOutSession(this.id, this.checkOutForm.value).subscribe({
+      if(this.paymentMethod() === 'visa'){
+        this.cartService.checkOutSession(this.id(), this.checkOutForm().value).subscribe({
           next:(res)=>{
             console.log(res);
             window.open(res.session.url, '_self')
           }
         })        
 
-      }else if(this.paymentMethod === 'cash'){
-        this.cartService.createCashOrder(this.id, this.checkOutForm.value).subscribe({
+      }else if(this.paymentMethod() === 'cash'){
+        this.cartService.createCashOrder(this.id(), this.checkOutForm().value).subscribe({
           next:(res)=>{
             console.log(res);
           }

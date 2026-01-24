@@ -4,9 +4,9 @@
         <div class="col-span-8">
             <div class="cart-caption flex items-center space-x-4">
                 <h2 class="head text-gray-700">Cart</h2>
-                <span class="font-[500] text-[18px] text-[#A2AF9B]">{{cartDetails.products.length}} items</span>
+                <span class="font-[500] text-[18px] text-[#A2AF9B]">{{cartDetails().products.length}} items</span>
             </div>
-            @for (item of cartDetails.products; track item._id) {
+            @for (item of cartDetails().products; track item._id) {
             <div class="grid sm:grid-cols-12 gap-7 bg-white mb-3">
                 <div class="col-span-2">
                     <div class="cart-img h-full">
@@ -44,7 +44,7 @@
                     <h3 class="text-[24px] mb-5 text-gray-600 font-[500]">Order Summary</h3>
                     <div class="flex items-center justify-between mb-3 text-gray-800">
                         <p>Price</p>
-                        <span>{{cartDetails.totalCartPrice | currency: 'EGP'}}</span>
+                        <span>{{cartDetails().totalCartPrice | currency: 'EGP'}}</span>
                     </div>
                     <div class="flex items-center justify-between mb-3 text-gray-800">
                         <p>Discount</p>
@@ -62,7 +62,7 @@
                 <div class="total">
                     <div class="flex items-center justify-between mb-5 text-gray-800">
                         <p class="font-[600]">Total</p>
-                        <span>{{cartDetails.totalCartPrice - 500 | currency: 'EGP'}}</span>
+                        <span>{{cartDetails().totalCartPrice - 500 | currency: 'EGP'}}</span>
                     </div>
                     <div class="flex items-center justify-between mb-4 text-gray-800">
                         <p class="font-[500]">Estimated Delivery by</p>
@@ -75,7 +75,7 @@
                         <button
                             class="bg-[#A2AF9B] rounded-[8px] p-[12px] absolute right-[8px] top-1/2 -translate-y-1/2 h-[40px] font-[600] cursor-pointer flex items-center text-white">Apply</button>
                     </div>
-                    <button [routerLink]="['/check-out', cartDetails._id]"
+                    <button [routerLink]="['/check-out', cartDetails()._id]"
                         class="bg-[#A2AF9B] p-[8px] rounded-[32px] text-white font-[600] h-[58px] w-full cursor-pointer">Proceed
                         to Checkout</button>
                 </div>

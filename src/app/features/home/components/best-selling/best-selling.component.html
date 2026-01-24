@@ -5,13 +5,13 @@
             <p class=" text-gray-800">Best Selling Products</p>
 
             <div class="inline-flex shadow-xs my-3 p-1 rounded-full bg-[#A2AF9B]" role="group">
-                <button (click)="allbtn()" type="button" [class]="{'active-btn': activeCategory === 'all'}"
+                <button (click)="allbtn()" type="button" [class]="{'active-btn': activeCategory() === 'all'}"
                     class="goup-btn dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
                     All
                 </button>
-                @for (cat of categoriesList.slice(0, 3); track $index) {
+                @for (cat of categoriesList().slice(0, 3); track $index) {
                 <button (click)="selectCategory(cat)" type="button"
-                    [class]="{'active-btn': activeCategory === cat.name}"
+                    [class]="{'active-btn': activeCategory() === cat.name}"
                     class="goup-btn dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
                     {{cat.name}}
                 </button>
@@ -21,11 +21,11 @@
         </div>
 
         <div class="cards" [class]="
-        activeCategory === 'all'
+        activeCategory() === 'all'
           ? 'grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-20'
           : 'flex justify-start'">
-            @for (category of categoriesList.slice(0,8); track category._id) {
-                <app-card [category]="category" [categoryName]="categoryName" [activeCategory]="activeCategory"></app-card>
+            @for (category of categoriesList().slice(0,8); track category._id) {
+                <app-card [category]="category" [categoryName]="categoryName()" [activeCategory]="activeCategory()"></app-card>
             }
         </div>
     </div>

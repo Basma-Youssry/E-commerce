@@ -5,10 +5,10 @@
         </div>
         <input [(ngModel)]="item" type="search" class="mb-15 border border-solid border-[#DCCFC0] border-1 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#DCCFC0] ">
         <div class="cards grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-20">
-            @for (product of allProducts | search : item | paginate: { id: 'foo',
-            itemsPerPage: pageSize,
-            currentPage: p,
-            totalItems: total }  ; track product._id ) {
+            @for (product of allProducts() | search : item() | paginate: { id: 'foo',
+            itemsPerPage: pageSize(),
+            currentPage: p(),
+            totalItems: total() }  ; track product._id ) {
             <app-card [product]="product" />
             }
         </div>

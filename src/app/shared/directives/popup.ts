@@ -11,6 +11,7 @@ export class Popup{
 //   myDiv!:HTMLElement;
 
 //   @Input() msg!:string;
+
 // @HostListener('mouseenter')
 //   addPopup():void{
 //      this.renderer2.setStyle(this.el.nativeElement, 'position', 'relative');

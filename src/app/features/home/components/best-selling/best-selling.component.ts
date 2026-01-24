@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { CategoriesBestSallerService } from '../../services/categories-best-saller.service';
 import { Icategory } from '../../interfaces/icategory.interface';
 import { CardComponent } from '../../../../shared/components/card/card.component';
@@ -13,10 +13,11 @@ import { CardComponent } from '../../../../shared/components/card/card.component
 })
 export class BestSellingComponent implements OnInit {
 
-  categoriesList: Icategory[] = [];
-  categoryName:string = ' ';
-  activeCategory:string = 'all';
-  // all:boolean = false;
+  //Zone.js
+  // categoriesList: Icategory[] = [];
+  categoriesList: WritableSignal<Icategory[]> = signal([]);
+  categoryName:WritableSignal<string> = signal('');
+  activeCategory:WritableSignal<string> = signal('all');
 
   private readonly categoriesBestSallerService = inject(CategoriesBestSallerService);
 
@@ -28,35 +29,36 @@ export class BestSellingComponent implements OnInit {
   getAllCategoriesData(): void {
     this.categoriesBestSallerService.getAllCategories().subscribe({
       next: (res) => {
-        console.log(res.data);
+        // console.log(res.data);
         // this.categoriesList = res.data;
 
         //*************Note1:Entered different price to API category[] to every object inside it.
         const staticPrices = [1200, 1500, 1800, 2100, 2500, 3000]; 
 
         // assign a different price to each category
-        this.categoriesList = res.data.map((cat:any, index:any) => ({
+
+        this.categoriesList.set(res.data.map((cat:any, index:any) => ({
           ...cat,
           price: staticPrices[index % staticPrices.length] 
-        }));
-
+        }))
+) 
       }
-      // Handling Errors inside Interceptop
+      // Handling Errors inside Interceptor
     })
   }
 
 
   selectCategory(category:Icategory):void{
-    this.categoryName = category.name;
+    this.categoryName.set(category.name);
 
-    this.activeCategory = category.name;
+    this.activeCategory.set(category.name);
     // console.log(category.name);
   }
 
   allbtn():void{
       // this.all = true;
-      this.categoryName = ' '
+      this.categoryName.set('');
 
-      this.activeCategory = 'all';
+      this.activeCategory.set('all');
   }
 }

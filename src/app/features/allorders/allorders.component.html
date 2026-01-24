@@ -3,7 +3,7 @@
         <h2 class="head text-[#364153] mb-13">All Orders</h2>
 
         <div class="orders">
-            @for (order of orders; let i = $index; track $index) {
+            @for (order of orders(); let i = $index; track $index) {
             <div class="order bg-[#EEEEEE] px-5 py-8 rounded rounded-xl mb-4">
                 <div class="order-head mb-19">
                     <h3 class="text-[20px] font-[600] text-[#A2AF9B] mb-2">Order {{i + 1}}</h3>
@@ -34,7 +34,4 @@
         </div>
         
     </div>
-
-
-
 </section>

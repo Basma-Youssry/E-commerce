@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { IProduct } from '../../../../core/interfaces/Iproduct.interface';
 import { ProductsService } from '../../../../core/services/products/products.service';
 import { CardComponent } from "../../../../shared/components/card/card.component";
@@ -11,7 +11,12 @@ import { CommonModule, UpperCasePipe } from '@angular/common';
   styleUrl: './top-products.component.css'
 })
 export class TopProductsComponent implements OnInit {
-allProducts:IProduct[] = [];
+
+//Zone.js syntax
+//  allProducts:IProduct[] = [];
+//Signal syntax
+ allProducts:WritableSignal<IProduct[]> = signal([]);
+
   private readonly  productsService= inject(ProductsService);
 
 ngOnInit(): void {
@@ -21,9 +26,9 @@ ngOnInit(): void {
 getAllProductsData(): void{
   this.productsService.getAllProducts().subscribe({
     next: (res) => {
-      this.allProducts = res.data;
+      this.allProducts.set(res.data) ;
 
-      console.log(this.allProducts);
+      // console.log(this.allProducts);
       
     }
     // Handling Errors inside Interceptop

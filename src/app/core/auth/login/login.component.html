@@ -7,12 +7,12 @@
                 <h2 class="text-gray-800 text-[22px] font-bold">Welcome Back</h2>
                 <p class="text-[#aaa095] text-[14px]">Please Login or sign up to continue our app</p>
             </div>
-            <form [formGroup]="loginFrom" class="mt-[20px]" (ngSubmit)="submitForm()">
+            <form [formGroup]="loginFrom()" class="mt-[20px]" (ngSubmit)="submitForm()">
 
                 <!-- Reusable component(input) -->
-                <app-input [control]="loginFrom.get('email')" [typeInput]="'email'" [idInput]="'email'"
+                <app-input [control]="loginFrom().get('email')" [typeInput]="'email'" [idInput]="'email'"
                     [labelInput]="'Email'" [placeholder]="'Ahmed@gmail.com'"></app-input>
-                <app-input [control]="loginFrom.get('password')" [idInput]="'password'"
+                <app-input [control]="loginFrom().get('password')" [idInput]="'password'"
                     [labelInput]="'Password'" [placeholder]="'xxxxxxxxxxxx'"></app-input>       
                     
                 <div class="flex items-center justify-between my-4">
@@ -32,14 +32,14 @@
                 <button type="submit"
                     class="text-white w-full bg-[#DCCFC0] box-border cursor-pointer rounded-xl border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-[17px] px-4 py-2.5 focus:outline-none">
                     Log in
-                    @if(isLoading){
+                    @if(isLoading()){
                     <span><i class="fas fa-spinner animate-spin"></i></span>
                     }
 
                 </button>
 
-                @if(msgError){
-                <p class="text-red-800 text-center mt-5">{{msgError}}</p>
+                @if(msgError()){
+                <p class="text-red-800 text-center mt-5">{{msgError()}}</p>
                 }
             </form>
             <div class="signUp-icons text-center my-3">

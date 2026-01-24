@@ -7,19 +7,19 @@
                 <h2 class="text-gray-800 text-[22px] font-bold">Create an Account</h2>
                 <p class="text-[#aaa095] text-[14px]">Create a new account</p>
             </div>
-            <form [formGroup]="registerFrom" class="mt-[20px]" (ngSubmit)="submitForm()">
+            <form [formGroup]="registerFrom()" class="mt-[20px]" (ngSubmit)="submitForm()">
                 <!-- Ruesable component -->
-                <app-input [control]="registerFrom.get('name')" [typeInput]="'text'" [idInput]="'name'"
+                <app-input [control]="registerFrom().get('name')" [typeInput]="'text'" [idInput]="'name'"
                     [labelInput]="'Name'" [placeholder]="'Ahmed'"></app-input>
-                <app-input [control]="registerFrom.get('email')" [typeInput]="'email'" [idInput]="'email'"
+                <app-input [control]="registerFrom().get('email')" [typeInput]="'email'" [idInput]="'email'"
                     [labelInput]="'Email'" [placeholder]="'Ahmed@gmail.com'"></app-input>
-                <app-input [control]="registerFrom.get('password')" [idInput]="'password'"
+                <app-input [control]="registerFrom().get('password')" [idInput]="'password'"
                     [labelInput]="'Password'" [placeholder]="'xxxxxxxxxxxx'">
                     Custom field should match
                 </app-input>
-                <app-input [control]="registerFrom.get('rePassword')" [idInput]="'rePassword'"
+                <app-input [control]="registerFrom().get('rePassword')" [idInput]="'rePassword'"
                     [labelInput]="'ConfirmPassword'" [placeholder]="'xxxxxxxxxxxx'"></app-input>
-                <app-input [control]="registerFrom.get('phone')" [typeInput]="'tel'" [idInput]="'phone'"
+                <app-input [control]="registerFrom().get('phone')" [typeInput]="'tel'" [idInput]="'phone'"
                     [labelInput]="'Phone'" [placeholder]="'01030547893'">
                 Accept only Egypt phone numbers
             </app-input>
@@ -44,13 +44,13 @@
                 <button type="submit"
                     class="text-white w-full bg-[#DCCFC0] box-border cursor-pointer rounded-xl border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-[17px] px-4 py-2.5 focus:outline-none">Sign
                     Up
-                    @if(isLoading){
+                    @if(isLoading()){
                     <span><i class="fas fa-spinner animate-spin"></i></span>
                     }
 
                 </button>
 
-                @if(msgError){
+                @if(msgError()){
                 <p class="text-red-800 text-center mt-5">{{msgError}}</p>
                 }
             </form>
