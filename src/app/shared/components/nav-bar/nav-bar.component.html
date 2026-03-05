@@ -16,42 +16,43 @@
             </svg>
         </button>
         <div class="hidden grow w-full md:flex md:align-items-center md:w-auto" id="navbar-default">
+
             @if(isLogin === true){
             <ul
-                class="font-medium grow-[2] flex flex-col justify-end p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-6 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800  dark:border-gray-700">
+                class="font-medium grow-[2] flex flex-col justify-end p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-6 md:mt-0 md:border-0  dark:bg-gray-800  dark:border-gray-700">
                 <li>
                     <a routerLink="/home" routerLinkActive="text-active"
                         class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm  md:p-0 dark:text-[#F3E2D4]"
-                        aria-current="page">Home</a>
+                        aria-current="page">{{'nav.home' | translate}}</a>
                 </li>
                 <li>
-                    <a routerLink="/services" routerLinkActive="text-active"
+                    <a routerLink="/brands" routerLinkActive="text-active"
                         class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                        aria-current="page">Services</a>
+                        aria-current="page">{{'nav.brands' | translate}}</a>
                 </li>
                 <li>
                     <a routerLink="/products" routerLinkActive="text-active"
                         class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                        aria-current="page">Products</a>
+                        aria-current="page">{{'nav.products' | translate}}</a>
                 </li>
                 <li>
                     <a routerLink="/about-us" routerLinkActive="text-active"
                         class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                        aria-current="page">About Us</a>
+                        aria-current="page">{{'nav.aboutUs' | translate}}</a>
                 </li>
                 <li>
-                    <a routerLink="/blog" routerLinkActive="text-active"
+                    <a routerLink="/categories" routerLinkActive="text-active"
                         class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                        aria-current="page">Blog</a>
+                        aria-current="page">{{'nav.categories' | translate}}</a>
                 </li>
                 <li>
                     <a routerLink="/contact-us" routerLinkActive="text-active"
                         class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                        aria-current="page">Contact Us</a>
+                        aria-current="page">{{'nav.contactUs' | translate}}</a>
                 </li>
             </ul>
             <ul
-                class="font-medium grow flex flex-col justify-end p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800  dark:border-gray-700">
+                class="font-medium grow flex flex-col justify-end items-center p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-4  md:mt-0 md:border-0  dark:bg-gray-800  dark:border-gray-700">
                 <li>
                     <a routerLink="/"
                         class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
@@ -74,23 +75,53 @@
             }
 
             <ul
-                class="font-medium flex flex-col grow justify-end  p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800  dark:border-gray-700">
+                class="font-medium flex flex-col grow justify-end p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0  dark:bg-gray-800  dark:border-gray-700">
+                <ul>
+                    <li>
+                        <button (click)="isLangOpen.set(!isLangOpen())" [class]="{
+                            'text-[#958676]': isLangOpen(),
+                            'text-[#A2AF9B]': !isLangOpen()
+                        }" id="dropdownNvbarButton" data-dropdown-toggle="dropdownNavbar"
+                            class="flex items-center text-[#A2AF9B] font-bold  cursor-pointer justify-between w-full py-2 px-3 rounded text-heading md:w-auto hover:text-[#958676] md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0">
+                            {{'nav.lang' | translate}}
+                            <svg class="w-4 h-4 ms-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                                height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="m19 9-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div #dropdownNavbar id="dropdownNavbar"
+                            class="z-10 hidden bg-neutral-primary-medium rounded-base shadow-lg w-44">
+                            <ul class="p-2 text-sm text-body font-medium" aria-labelledby="dropdownNvbarButton">
+                                <li>
+                                    <a [hidden]="currentLang('en')" (click)="change('en')"
+                                        class="cursor-pointer inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">EN</a>
+                                </li>
+                                <li>
+                                    <a [hidden]="currentLang('ar')" (click)="change('ar')"
+                                        class="cursor-pointer inline-flex items-center w-full p-2 hover:bg-neutral-tertiary-medium hover:text-heading rounded">AR</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
                 @if(isLogin === false){
                 <li>
                     <a routerLink="/login"
                         class="block font-bold py-2 px-3 text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                        aria-current="page">Login</a>
+                        aria-current="page">{{'nav.login' | translate}}</a>
                 </li>
                 <li>
                     <a routerLink="/register"
                         class="block font-bold py-2 px-3 text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                        aria-current="page">Register</a>
+                        aria-current="page">{{'nav.register' | translate}}</a>
                 </li>
                 }@else {
                 <li>
                     <a (click)="signOut()"
-                        class="block font-bold cursor-pointer py-2 px-3 text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
-                        aria-current="page">SignOut</a>
+                        class="block font-bold ms-3 cursor-pointer py-2 px-3 text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">{{'nav.signOut' | translate}}</a>
                 </li>
                 }
             </ul>

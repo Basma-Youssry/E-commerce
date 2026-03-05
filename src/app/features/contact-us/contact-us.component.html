@@ -1,1 +1,58 @@
-<p>contact-us works!</p>
+<section>
+    <div class="container">
+        <div class="grid grid-cols-12">
+            <div class="col-span-10">
+                <!-- Breadcrumb -->
+                <p class="text-sm text-gray-400 mb-10 relative left-8">
+                    <span class="text-[#A2AF9B] font-bold">Home</span> <span class="mx-2">></span> Contact Us
+                </p>
+
+                <!-- Title -->
+                <h1 class="text-3xl font-bold text-gray-800 mb-2">Contact me</h1>
+                <p class="text-gray-500 mb-8">
+                    Feel free to reach out for any questions, collaborations, or project inquiries.
+                </p>
+
+                <form [formGroup]="contactForm()" (ngSubmit)="submit()" class="space-y-5">
+                    <!-- First + Last -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- <label class="block text-sm font-medium mb-2">First name</label>
+                        <input type="text" formControlName="firstName" class="input-style"> -->
+                        <app-input [control]="contactForm().get('firstName')" [typeInput]="'text'"
+                            [idInput]="'firstName'" [labelInput]="'contactUs.firstName' | translate"
+                            [placeholder]="'contactUs.fN' | translate"></app-input>
+
+                        <app-input [control]="contactForm().get('lastName')" [typeInput]="'text'" [idInput]="'lastName'"
+                            [labelInput]="'contactUs.lastName' | translate"
+                            [placeholder]="'contactUs.lN' | translate"></app-input>
+
+                        <app-input [control]="contactForm().get('email')" [typeInput]="'email'" [idInput]="'email'"
+                            [labelInput]="'contactUs.Email' | translate" [placeholder]="'Ahmed@gmail.com'"></app-input>
+
+                        <app-input [control]="contactForm().get('phone')" [typeInput]="'tel'" [idInput]="'phone'"
+                            [labelInput]="'contactUs.phone' | translate" [placeholder]="'01030547893'">
+                            {{'register.iAgreeWith' | translate}}
+                        </app-input>
+                    </div>
+
+                    <app-input [element]="'select'" [control]="contactForm().get('topic')"
+                        [labelInput]="'contactUs.chooseATopic' | translate"></app-input>
+                    <app-input [element]="'textarea'" [control]="contactForm().get('message')"
+                        [labelInput]="'contactUs.message' | translate"
+                        [placeholder]="'contactUs.writeYourMessage' | translate">
+                    </app-input> 
+                      
+                    <!-- Topic -->
+                    <app-check-box [control]="'terms'" [labelInput]="'contactUs.Iaccepttheterms'"></app-check-box>
+
+                    <button routerLink="/home" class="bg-[#A2AF9B] mt-5 rounded-3xl text-white px-20 py-1 cursor-pointer">  
+                     Submit
+                    </button>
+                </form>
+
+            </div>
+
+            <div class="col-span-2"></div>
+        </div>
+    </div>
+</section>

@@ -3,10 +3,11 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { InputComponent } from "../../shared/components/input/input.component";
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CartService } from '../cart/services/cart.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-checkout',
-  imports: [ReactiveFormsModule, InputComponent, RouterLink],
+  imports: [ReactiveFormsModule, InputComponent, RouterLink, TranslatePipe],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css'
 })

@@ -4,34 +4,36 @@
         <div class="login-form col-span-12 md:col-span-6 py-20 px-17 bg-[#EEEEEE]">
 
             <div class="login-caption">
-                <h2 class="text-gray-800 text-[22px] font-bold">Welcome Back</h2>
-                <p class="text-[#aaa095] text-[14px]">Please Login or sign up to continue our app</p>
+                <h2 class="text-gray-800 text-[22px] font-bold">{{'login.welcomeBack' | translate}}</h2>
+                <p class="text-[#aaa095] text-[14px]">{{'login.pleaseLogin' | translate}}</p>
             </div>
             <form [formGroup]="loginFrom()" class="mt-[20px]" (ngSubmit)="submitForm()">
 
                 <!-- Reusable component(input) -->
                 <app-input [control]="loginFrom().get('email')" [typeInput]="'email'" [idInput]="'email'"
-                    [labelInput]="'Email'" [placeholder]="'Ahmed@gmail.com'"></app-input>
+                    [labelInput]="'login.Email' | translate" [placeholder]="'Ahmed@gmail.com'"></app-input>
                 <app-input [control]="loginFrom().get('password')" [idInput]="'password'"
-                    [labelInput]="'Password'" [placeholder]="'xxxxxxxxxxxx'"></app-input>       
+                    [labelInput]="'login.Password' | translate" [placeholder]="'xxxxxxxxxxxx'"></app-input>       
                     
                 <div class="flex items-center justify-between my-4">
                     <!-- Remember Me -->
-                    <label class="flex items-center gap-2 cursor-pointer select-none">
+                   <app-check-box [control]="'rememberMe'" [labelInput]="'login.rememberMe'"></app-check-box>
+
+                    <!-- <label class="flex items-center gap-2 cursor-pointer select-none">
                         <input type="checkbox" formControlName="rememberMe" class="w-4 h-4 rounded border-gray-300 text-[#A2AF9B]
                          focus:ring-2 focus:ring-[#DCCFC0]" />
-                        <span class="text-sm text-gray-700">Remember me</span>
-                    </label>
+                        <span class="text-sm text-gray-700">{{'login.rememberMe' | translate}}</span>
+                    </label> -->
 
                     <!-- Forget password -->
                     <a routerLink="/forgetpassword" class="text-sm text-[#A2AF9B] hover:underline">
-                        Forget password?
+                        {{'login.forgetPassword' | translate}}
                     </a>
                 </div>
 
                 <button type="submit"
                     class="text-white w-full bg-[#DCCFC0] box-border cursor-pointer rounded-xl border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-[17px] px-4 py-2.5 focus:outline-none">
-                    Log in
+                    {{'login.logIn' | translate}}
                     @if(isLoading()){
                     <span><i class="fas fa-spinner animate-spin"></i></span>
                     }
@@ -43,7 +45,7 @@
                 }
             </form>
             <div class="signUp-icons text-center my-3">
-                <p class="text-[13px] text-[#aaa095]">Or Continue with</p>
+                <p class="text-[13px] text-[#aaa095]">{{'login.orContinueWith' | translate}}</p>
                 <div class="flex justify-center gap-4 mt-5">
                     <!-- Google Icon (multi-color) -->
                     <a href="#">
@@ -57,7 +59,6 @@
                             <path fill="#EA4335"
                                 d="M272 107.7c38.6 0 73.2 13.3 100.5 39.3l75.2-75.2C406.2 24.4 344.9 0 272 0 168.1 0 76.2 60.3 31.3 152.7l86 70.7c21.7-64.7 82.4-112.8 154.7-112.8z" />
                         </svg>
-
                     </a>
 
                     <!-- Facebook Icon (blue) -->
@@ -72,8 +73,8 @@
                     </a>
                 </div>
             </div>
-            <div class="text-center text-[15px] text-gray-400">Don't have an account? <a routerLink="/register"
-                    class="text-[#A2AF9B] underline">Sign Up</a></div>
+            <div class="text-center text-[15px] text-gray-400">{{'login.dontHaveAccount' | translate}} <a routerLink="/register"
+                    class="text-[#A2AF9B] underline">{{'login.signUp' | translate}}</a></div>
         </div>
 
         <!-- <div class="img-layer"> -->
@@ -83,8 +84,8 @@
 
             <div class="layer text-center flex flex-col items-center justify-end">
                 <div class="layer-content translate-y-[-80px] text-white">
-                    <p class="text-xl font-bold">Welcome to Shppvia</p>
-                    <p class="text-[12.5px]">Discover products you love,<br>at price you deserve...</p>
+                    <p class="text-xl font-bold">{{'auth.welcomeToShppvia' | translate}}</p>
+                    <p class="text-[12.5px]">{{'auth.description1' | translate}}<br>{{'auth.description2' | translate}}</p>
                 </div>
 
             </div>

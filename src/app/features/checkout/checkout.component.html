@@ -1,6 +1,6 @@
 <section class="checkOut md:w-1/2 mx-auto shadow my-20">
     <div class="container">
-        <h1 class="text-[40px] font-[600] text-gray-700">CheckOut</h1>
+        <h1 class="text-[40px] font-[600] text-gray-700">{{'checkout.title' | translate}}</h1>
 
         <form [formGroup]="checkOutForm()">
             <app-input [element]="'text'" [control]="this.checkOutForm().get('shippingAddress')?.get('details')" [idInput]="'details'" [labelInput]="'Details'"></app-input>
@@ -8,11 +8,10 @@
                 accept only Egypt phone numbers
             </app-input>
             <app-input [element]="'input'" [typeInput]="'text'" [control]="this.checkOutForm().get('shippingAddress')?.get('city')" [idInput]="'city'" [labelInput]="'City'"></app-input>
-
-
+            
             <div class="buttons flex items-center justify-center space-x-10">
-                <button type="button" (click)="paymentMethod.set('visa') ;submitForm()" class="bg-[#A2AF9B] px-9 xl:px-15 py-2 cursor-pointer text-[#DCCFC0] text-[13px] xl:text-[16px] ">Payment By Visa</button>
-                <button routerLink="/allorders" type="button" (click)="paymentMethod.set('cash') ;submitForm()" class="bg-[#A2AF9B] px-9 xl:px-15 py-2 cursor-pointer text-[#DCCFC0] text-[13px] xl:text-[16px]">Payment By Cash</button>
+                <button type="button" (click)="paymentMethod.set('visa') ;submitForm()" class="bg-[#A2AF9B] px-9 xl:px-15 py-2 cursor-pointer text-[#DCCFC0] text-[13px] xl:text-[16px] ">{{'checkout.paymentByVisa' | translate}}</button>
+                <button routerLink="/allorders" type="button" (click)="paymentMethod.set('cash') ;submitForm()" class="bg-[#A2AF9B] px-9 xl:px-15 py-2 cursor-pointer text-[#DCCFC0] text-[13px] xl:text-[16px]">{{'checkout.paymentByCash' | translate}}</button>
             </div>
         </form>
     </div>

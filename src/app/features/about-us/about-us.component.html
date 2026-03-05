@@ -1,1 +1,46 @@
-<p>about-us works!</p>
+<section class="about-us bg-[#EEEEEE]">
+    <div class="container">
+        <!-- Breadcrumb -->
+        <div>
+            <p class="text-sm text-gray-400 mb-7 relative left-8">
+                <span class="text-[#A2AF9B] font-bold">{{ 'about-us.breadcrumb.home' | translate }}</span>
+                <span class="mx-2">></span>
+                <span>{{ 'about-us.breadcrumb.about' | translate }}</span>
+            </p>
+        </div>
+
+        <div class="grid grid-cols-12 relative mb-10">
+            <div class="col-span-4"></div>
+            <figure class="col-span-8 me-0 flex justify-end">
+                <img class="w-160 rounded-3xl" src="/images/2.png" [alt]="'about-us.quote.author' | translate">
+
+                <figcaption class="absolute top-[50%] -translate-y-1/2 
+         ltr:left-[10px] lg:ltr:left-[220px] 
+         rtl:right-[10px] lg:rtl:right-[220px] 
+         bg-white/60 p-3 !md:p-9 rounded-2xl w-50 sm:w-60 md:w-75 lg:w-90 block">
+                    <i class="fa-solid fa-quote-left text-[27px] text-[#A2AF9B]"></i>
+                    <p class="my-3 text-[8px] md:text-[15px]">{{ 'about-us.quote.text' | translate }}</p>
+                    <p class="font-bold">{{ 'about-us.quote.author' | translate }}</p>
+                </figcaption>
+            </figure>
+        </div>
+
+        <div class="aboutus-details">
+            <div class="caption">
+                <h1 class="head text-gray-700 text-[25px] md:text-[33px]">{{ 'about-us.about.title' | translate }}</h1>
+                <p>{{ 'about-us.about.subtitle' | translate }}</p>
+            </div>
+            <div class="about-container grid grid-cols-12 md:gap-15 flex items-center">
+                <figure class="col-span-12 md:col-span-6 mb-4">
+                    <img class="rounded-3xl"
+                        src="/images/teamwork-office-animated-characters-joining-hands_145406-3217.avif" alt="teamwork">
+                </figure>
+
+                <div class="col-span-12 md:col-span-6 w-[80%]">
+                    <p class="text-gray-700 font-bold mb-4">{{ 'about-us.about.whyTitle' | translate }}</p>
+                    <p>{{ 'about-us.about.whyText' | translate }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

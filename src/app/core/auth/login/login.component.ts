@@ -6,11 +6,13 @@ import { Router, RouterModule } from '@angular/router';
 import { InputComponent } from "../../../shared/components/input/input.component";
 import { isPlatformBrowser } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
+import { TranslatePipe } from '@ngx-translate/core';
+import { CheckBoxComponent } from "../../../shared/components/check-box/check-box.component";
 
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, RouterModule, InputComponent],
+  imports: [ReactiveFormsModule, RouterModule, InputComponent, TranslatePipe, CheckBoxComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

@@ -1,0 +1,166 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "categories": "التصنيفات",
+    "products": "المنتجات",
+    "aboutUs": "من نحن",
+    "brands": "العلامه التجاريه",
+    "contactUs": "اتصل بنا",
+    "login": "تسجيل الدخول",
+    "register": "التسجيل",
+    "signOut": "تسجيل الخروج",
+    "lang" : "اللغه"
+
+  },
+  "newCollection": {
+    "title": "مجموعة جديدة",
+    "subtitle": "تحقق من المجموعة الجديدة",
+    "electronics": "الإلكترونيات",
+    "upTo50Off": "خصم يصل إلى 50٪",
+    "womenFashion": "أزياء نسائية",
+    "watches": "الساعات",
+    "upTo80Off": "خصم يصل إلى 80٪"
+  },
+  "bestSelling": {
+    "title": "المنتجات الأكثر مبيعاً",
+    "subtitle": "المنتجات الأكثر مبيعاً",
+    "all": "الكل"
+  },
+  "topProducts": {
+    "title": "أفضل المنتجات",
+    "subtitle": "أفضل الاختيارات لك!"
+  },
+  "title": {
+    "shawl": "شال",
+    "bordeaux": "نبيتى",
+    "brown": "بنى",
+    "woman": "نسائى",
+    "standart": "ستاندرد"
+  },
+  "products": {
+    "title": "قائمة المنتجات"
+  },
+  "productDetails": {
+    "quantity": "الكمية",
+    "addToCart": "جنيه . أضف إلى السلة",
+    "estimatedDelivery": "التسليم المتوقع:",
+    "date": "01 أغسطس 2025 - 03 أغسطس 2025"
+  },
+   "categories":{
+    "title": "تصنيفات"
+  },
+  "cart": {
+    "title": "السلة",
+    "items": "عناصر",
+    "orderSummary": "ملخص الطلب",
+    "price": "السعر",
+    "discount": "الخصم",
+    "shipping": "الشحن",
+    "free": "مجاني",
+    "couponApplied": "تم تطبيق القسيمة",
+    "total": "الإجمالي",
+    "estimatedDeliveryBy": "التسليم المتوقع بحلول",
+    "apply": "تطبيق",
+    "CouponCode": "كود الخصم",
+    "proceedToCheckout": "المتابعة إلى الدفع"
+  },
+  "checkout": {
+    "title": "الدفع",
+    "Details": "التفاصيل",
+    "Phone": "الهاتف",
+    "City": "المدينة",
+    "paymentByVisa": "الدفع بواسطة فيزا",
+    "paymentByCash": "الدفع نقداً"
+  },
+  "auth": {
+    "welcomeToShppvia": "مرحباً بك في Shppvia",
+    "description1": "اكتشف المنتجات التي تحبها،",
+    "description2": "بالسعر الذي تستحقه..."
+  },
+  "login": {
+    "welcomeBack": "مرحباً بعودتك",
+    "pleaseLogin": "يرجى تسجيل الدخول أو التسجيل لمتابعة تطبيقنا",
+    "Email": "البريد الإلكتروني",
+    "Password": "كلمة المرور",
+    "rememberMe": "تذكرني",
+    "forgetPassword": "نسيت كلمة المرور؟",
+    "logIn": "تسجيل الدخول",
+    "orContinueWith": "أو المتابعة مع",
+    "dontHaveAccount": "ليس لديك حساب؟",
+    "signUp": "التسجيل"
+  },
+  "register": {
+    "createAccount": "إنشاء حساب",
+    "createNewAccount": "إنشاء حساب جديد",
+    "Name": "الاسم",
+    "Email": "البريد الإلكتروني",
+    "Password": "كلمة المرور",
+    "ConfirmPassword": "تأكيد كلمة المرور",
+    "Phone": "الهاتف",
+    "iAgreeWith": "أقبل رقم مصرى",
+    "termsAndConditions": "الشروط والأحكام",
+    "signUp": "التسجيل",
+    "orSignUpWith": "أو التسجيل مع",
+    "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+    "logIn": "تسجيل الدخول",
+    "inputRequired": "المدخل مطلوب."
+  },
+  "footer": {
+    "newsletter": "النشرة الإخبارية للبقاء على اطلاع على الميزات والإصدارات.",
+    "enterEmail": "أدخل بريدك الإلكتروني",
+    "subscribe": "اشترك",
+    "privacyPolicy": "بالاشتراك، فإنك توافق على سياسة الخصوصية الخاصة بنا وتقدم موافقتك على تلقي رسائل من شركتنا.",
+    "allRightsReserved": "Shopvia، جميع الحقوق محفوظة.",
+    "aboutUs": "من نحن",
+    "faq": "الأسئلة الشائعة",
+    "contact": "اتصل",
+    "returns": "المرتجعات",
+    "shipping": "الشحن",
+    "customerSupport": "دعم العملاء",
+    "affiliates": "الشركات التابعة",
+    "applePayPayments": "مدفوعات Apple Pay",
+    "returnsPolicy": "سياسة الإرجاع",
+    "followUs": "تابعنا",
+    "facebook": "فيسبوك",
+    "instagram": "إنستغرام",
+    "twitter": "تويتر",
+    "linkedin": "لينكد إن"
+  },
+  "contactUs": {
+  "firstName": "الاسم الأول",
+  "lastName": "اسم العائلة",
+  "Email": "البريد الإلكتروني",
+  "phoneNumber": "رقم الهاتف",
+  "Chooseatopic": "اختر موضوعًا",
+  "Message": "الرسالة",
+  "Iaccepttheterms": "أوافق على الشروط والأحكام",
+  "Submit": "إرسال",
+  "fN": "محمد",
+  "lN": "احمد",
+  "phone": "تليفون",
+  "chooseATopic": "اختر موضوعًا",
+  "message": "رساله",
+  "writeYourMessage":"اكتب الرساله الخاصه بك"
+},
+ "about-us": {
+  "breadcrumb": {
+    "home": "الرئيسية",
+    "about": "من نحن"
+  },
+  "quote": {
+    "text": "نحن سعداء بتقديم أفضل قالب Shopify لدينا الذي يدعم الأقسام في كل مكان، ويحقق درجات عالية جداً في Google PageSpeed. هذا القالب مخصص للجوال وسيسهل استخدامه على جميع أجهزتكم.",
+    "author": "جيمس أندرسون"
+  },
+  "about": {
+    "title": "بعض الكلمات عنا",
+    "subtitle": "نحن فريق مبدع ملتزم بالجودة والابتكار",
+    "whyTitle": "لماذا تختارنا ؟",
+    "whyText": "نحن فريق متحمس مكرس لبناء تجارب رقمية حديثة وسهلة الاستخدام. مهمتنا تقديم حلول عالية الجودة تجمع بين الإبداع والوظائف. نركز على التصميم النظيف، والتخطيطات المتجاوبة، والأداء السلس. رضا العملاء في قلب كل ما نقوم به. نؤمن بالتعلم المستمر والابتكار."
+  }
+ },
+  "common": {
+    "egp": "جنيه مصري",
+    "search": "بحث",
+    "viewAll": "عرض الكل"
+  }
+}

@@ -10,11 +10,9 @@ export const serverRoutes: ServerRoute[] = [
   // Static pages
   { path: 'home', renderMode: RenderMode.Prerender },
   { path: 'about-us', renderMode: RenderMode.Prerender },
-  { path: 'services', renderMode: RenderMode.Prerender },
   { path: 'products', renderMode: RenderMode.Prerender },
   { path: 'contact-us', renderMode: RenderMode.Prerender },
   { path: 'check-out', renderMode: RenderMode.Prerender },
-  { path: 'blog', renderMode: RenderMode.Prerender },
 
   // Auth
   { path: 'register', renderMode: RenderMode.Prerender },

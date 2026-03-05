@@ -1,0 +1,167 @@
+{
+  "nav": {
+    "home": "Home",
+    "categories": "Categories",
+    "products": "Products",
+    "aboutUs": "About Us",
+    "brands": "Brands",
+    "contactUs": "Contact Us",
+    "login": "Login",
+    "register": "Register",
+    "signOut": "SignOut",
+    "lang": "Lang"
+  },
+  "newCollection": {
+    "title": "New Collection",
+    "subtitle": "Check the new collection",
+    "electronics": "Electronics",
+    "upTo50Off": "UP TO 50%OFF",
+    "womenFashion": "Women's Fashion",
+    "watches": "Watches",
+    "upTo80Off": "UP TO 80%OFF"
+  },
+  "bestSelling": {
+    "title": "Best selling Products",
+    "subtitle": "Best Selling Products",
+    "all": "All"
+  },
+  "topProducts": {
+    "title": "Top Products",
+    "subtitle": "Top Picks For You!"
+  },
+  "title": {
+    "shawl": "Shawl",
+    "bordeaux": "Bordeaux",
+    "brown": "Brown",
+    "woman": "Women",
+    "standart": "Standard"
+  },
+  "products": {
+    "title": "Products list"
+  },
+  "productDetails": {
+    "quantity": "Quantity",
+    "addToCart": "EG . Add to cart",
+    "estimatedDelivery": "Estimated Delivery:",
+    "date": "01 Aug 2025 - 03 Aug 2025"
+  },
+  "categories": {
+    "title": "Categories"
+  },
+  "cart": {
+    "title": "Cart",
+    "items": "items",
+    "orderSummary": "Order Summary",
+    "price": "Price",
+    "discount": "Discount",
+    "shipping": "Shipping",
+    "free": "Free",
+    "couponApplied": "Coupon Applied",
+    "couponAmount": "0.00EGP",
+    "total": "Total",
+    "estimatedDeliveryBy": "Estimated Delivery by",
+    "apply": "Apply",
+    "CouponCode": "Coupon Code",
+    "proceedToCheckout": "Proceed to Checkout"
+  },
+  "checkout": {
+    "title": "CheckOut",
+    "Details": "Details",
+    "Phone": "Phone",
+    "City": "City",
+    "paymentByVisa": "Payment By Visa",
+    "paymentByCash": "Payment By Cash"
+  },
+  "auth": {
+    "welcomeToShppvia": "Welcome to Shppvia",
+    "description1": "Discover products you love,",
+    "description2": "at price you deserve..."
+  },
+  "login": {
+    "welcomeBack": "Welcome Back",
+    "pleaseLogin": "Please Login or sign up to continue our app",
+    "Email": "Email",
+    "Password": "Password",
+    "rememberMe": "Remember me",
+    "forgetPassword": "Forget password?",
+    "logIn": "Log in",
+    "orContinueWith": "Or Continue with",
+    "dontHaveAccount": "Don't have an account?",
+    "signUp": "Sign Up"
+  },
+  "register": {
+    "createAccount": "Create an Account",
+    "createNewAccount": "Create a new account",
+    "Name": "Name",
+    "Email": "Email",
+    "Password": "Password",
+    "ConfirmPassword": "ConfirmPassword",
+    "Phone": "Phone",
+    "iAgreeWith": "I agree with the Egyption number",
+    "termsAndConditions": "terms and conditions",
+    "signUp": "Sign Up",
+    "orSignUpWith": "Or sign up with",
+    "alreadyHaveAccount": "already have an account?",
+    "logIn": "Log in",
+    "inputRequired": "Input is required."
+  },
+  "footer": {
+    "newsletter": "newsletter to stay up to date on features and releases.",
+    "enterEmail": "Enter your Email",
+    "subscribe": "Subscribe",
+    "privacyPolicy": "By subscribing you agree to with our privacy policy and provide consent to receive from our company.",
+    "allRightsReserved": "Shopvia, All rights reserved.",
+    "aboutUs": "About US",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "returns": "Returns",
+    "blog": "Blog",
+    "shipping": "Shipping",
+    "customerSupport": "Customer Support",
+    "affiliates": "Affiliates",
+    "applePayPayments": "Apple Pay Payments",
+    "returnsPolicy": "Returns Policy",
+    "followUs": "Follow Us",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "linkedin": "Linkedin"
+  },
+  "contactUs": {
+    "firstName": "first Name",
+    "lastName": "last Name",
+    "Email": "Email",
+    "phoneNumber": "Phone number",
+    "Chooseatopic": "Choose a topic",
+    "Message": "Message",
+    "Iaccepttheterms": "I accept the terms",
+    "Submit": "Submit",
+    "fN": "Mohamed",
+    "lN": "Ahmed",
+    "phone": "Phone",
+    "chooseATopic": "Choose a topic",
+    "message": "Message",
+    "writeYourMessage": "write Your Message......"
+  },
+  "about-us": {
+    "breadcrumb": {
+      "home": "Home",
+      "about": "About Us"
+    },
+    "quote": {
+      "text": "We are glad to present you our most perfect Shopify theme which supports sections everywhere, very high metric scores on Google PageSpeed Insight. This is the most mobile-oriented theme that will be convenient on any of your devices.",
+      "author": "James Anderson"
+    },
+    "about": {
+      "title": "A Few Words About Us",
+      "subtitle": "We are a creative team dedicated to quality and innovation",
+      "whyTitle": "Why choose us ?",
+      "whyText": "We are a passionate team dedicated to building modern and user-friendly digital experiences. Our mission is to deliver high-quality solutions that combine creativity with functionality. We focus on clean design, responsive layouts, and seamless performance. Customer satisfaction is at the heart of everything we do. We believe in continuous learning, innovation."
+    }
+  },
+  "common": {
+    "egp": "EGP",
+    "search": "Search",
+    "viewAll": "View All"
+  }
+}

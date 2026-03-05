@@ -4,16 +4,23 @@ import { Cart } from './models/interfaces/cart.interface';
 import { CurrencyPipe } from '@angular/common';
 import { Observable } from 'rxjs';
 import { RouterLink } from "@angular/router";
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { NavBarComponent } from '../../shared/components/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-cart',
-  imports: [CurrencyPipe, RouterLink],
+  imports: [CurrencyPipe, RouterLink, TranslatePipe, NavBarComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
 export class CartComponent implements OnInit{
   private readonly  cartService= inject(CartService);
+  //  private readonly  currentLangService= inject(CurrentLangService);
+  private readonly  translateService= inject(TranslateService);
+  
 
+  price:number = 200;
+  currency:string = 'EGP';
   //Signals syntax
   cartDetails:WritableSignal<Cart> = signal({} as Cart);
   // cartCount:WritableSignal<number> = signal(0);
@@ -59,5 +66,11 @@ export class CartComponent implements OnInit{
       }
       // Handling Errors inside Interceptop
     })
+  }
+
+
+  
+  currentLang():boolean{
+   return this.translateService.currentLang === 'ar';
   }
 }

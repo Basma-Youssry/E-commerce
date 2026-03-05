@@ -2,17 +2,15 @@ import { AuthLayoutComponent } from './core/layouts/auth-layout/auth-layout.comp
 import { BlankLayoutComponent } from './core/layouts/blank-layout/blank-layout.component';
 import { HomeComponent } from './features/home/home.component';
 import { AboutUsComponent } from './features/about-us/about-us.component';
-import { ServicesComponent } from './features/services/services.component';
 import { ProductsComponent } from './features/products/products.component';
 import { NotfoundComponent } from './features/notfound/notfound.component';
 import { DetailsComponent } from './features/details/details.component';
 import { ContactUsComponent } from './features/contact-us/contact-us.component';
 import { CheckoutComponent } from './features/checkout/checkout.component';
-import { BlogComponent } from './features/blog/blog.component';
-
 import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth-guard';
 import { inloggedGuard } from './core/guards/inlogged-guard';
+import { CategoriesComponent } from './features/categories/categories.component';
 
 
 
@@ -31,7 +29,7 @@ export const routes: Routes = [
          children: [
             { path: 'home',   loadComponent: ()=> import('./features/home/home.component').then((c)=>c.HomeComponent),title: 'Home page'},
             { path: 'about-us', loadComponent: ()=> import('./features/about-us/about-us.component').then((c)=>c.AboutUsComponent), title: 'About page' },
-            { path: 'services', loadComponent: ()=> import('./features/services/services.component').then((c)=>c.ServicesComponent), title: 'Services page' },
+            { path: 'brands', loadComponent: ()=> import('./features/brands/brands.component').then((c)=>c.BrandsComponent), title: 'Brands page' },
             { path: 'products', loadComponent: ()=> import('./features/products/products.component').then((c)=>c.ProductsComponent),title: 'Products page' },
             { path: 'details', component: DetailsComponent, title: 'Details page'},
             { path: 'details/:slug/:id', component: DetailsComponent, title: 'Details page'},
@@ -39,7 +37,7 @@ export const routes: Routes = [
             { path: 'contact-us', component: ContactUsComponent, title: 'Contact-us page' },
             { path: 'check-out', component: CheckoutComponent, title: 'check-out page' },
             { path: 'check-out/:id', component: CheckoutComponent, title: 'check-out page' },
-            { path: 'blog', component: BlogComponent, title: 'Blog page' },
+            { path: 'categories', component: CategoriesComponent, title: 'categories page' },
             { path: 'allorders', loadComponent: ()=> import('./features/allorders/allorders.component').then((c)=>c.AllordersComponent),title: 'allorders page' },
             { path: 'cart', loadComponent: ()=> import('./features/cart/cart.component').then((c)=>c.CartComponent),title: 'Cart page' }
         ]

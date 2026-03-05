@@ -4,25 +4,25 @@
         <div class="register-form col-span-12 md:col-span-6 py-20 px-17 bg-[#EEEEEE]">
 
             <div class="register-caption">
-                <h2 class="text-gray-800 text-[22px] font-bold">Create an Account</h2>
-                <p class="text-[#aaa095] text-[14px]">Create a new account</p>
+                <h2 class="text-gray-800 text-[22px] font-bold">{{'register.createAccount' | translate}}</h2>
+                <p class="text-[#aaa095] text-[14px]">{{'register.createNewAccount' | translate}}</p>
             </div>
             <form [formGroup]="registerFrom()" class="mt-[20px]" (ngSubmit)="submitForm()">
                 <!-- Ruesable component -->
                 <app-input [control]="registerFrom().get('name')" [typeInput]="'text'" [idInput]="'name'"
-                    [labelInput]="'Name'" [placeholder]="'Ahmed'"></app-input>
+                    [labelInput]="'register.Name' | translate" [placeholder]="'Ahmed'"></app-input>
                 <app-input [control]="registerFrom().get('email')" [typeInput]="'email'" [idInput]="'email'"
-                    [labelInput]="'Email'" [placeholder]="'Ahmed@gmail.com'"></app-input>
+                    [labelInput]="'register.Email' | translate" [placeholder]="'Ahmed@gmail.com'"></app-input>
                 <app-input [control]="registerFrom().get('password')" [idInput]="'password'"
-                    [labelInput]="'Password'" [placeholder]="'xxxxxxxxxxxx'">
-                    Custom field should match
+                    [labelInput]="'register.Password' | translate" [placeholder]="'xxxxxxxxxxxx'">
+                    {{'register.Phone' | translate}}
                 </app-input>
                 <app-input [control]="registerFrom().get('rePassword')" [idInput]="'rePassword'"
                     [labelInput]="'ConfirmPassword'" [placeholder]="'xxxxxxxxxxxx'"></app-input>
                 <app-input [control]="registerFrom().get('phone')" [typeInput]="'tel'" [idInput]="'phone'"
                     [labelInput]="'Phone'" [placeholder]="'01030547893'">
-                Accept only Egypt phone numbers
-            </app-input>
+                {{'register.iAgreeWith' | translate}}
+                </app-input>
                 <label for="remember" class="flex items-center mb-5 cursor-pointer">
                     <input id="remember" type="checkbox" value="" class="
                         w-4 h-4 
@@ -37,13 +37,12 @@
                         transition-colors duration-150
                     " required />
                     <p class="ms-2 text-[13px] font-medium text-heading select-none">
-                        I agree with the
-                        <a href="#" class="text-fg-brand underline text-[#A2AF9B]">terms and conditions</a>
+                        {{'register.iAgreeWith' | translate}}
+                        <a href="#" class="text-fg-brand underline text-[#A2AF9B]">{{'register.termsAndConditions' | translate}}</a>
                     </p>
                 </label>
                 <button type="submit"
-                    class="text-white w-full bg-[#DCCFC0] box-border cursor-pointer rounded-xl border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-[17px] px-4 py-2.5 focus:outline-none">Sign
-                    Up
+                    class="text-white w-full bg-[#DCCFC0] box-border cursor-pointer rounded-xl border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-[17px] px-4 py-2.5 focus:outline-none">{{'register.signUp' | translate}}
                     @if(isLoading()){
                     <span><i class="fas fa-spinner animate-spin"></i></span>
                     }
@@ -55,7 +54,7 @@
                 }
             </form>
             <div class="signUp-icons text-center my-3">
-                <p class="text-[13px] text-[#aaa095]">Or sign up with</p>
+                <p class="text-[13px] text-[#aaa095]">{{'register.orSignUpWith' | translate}}</p>
                 <div class="flex justify-center gap-4 mt-5">
                     <!-- Google Icon (multi-color) -->
                     <a href="#">
@@ -84,8 +83,8 @@
                     </a>
                 </div>
             </div>
-            <div class="text-center text-[15px] text-gray-400">already have an account? <a routerLink="/login"
-                    class="text-[#A2AF9B] underline cursor-pointer">Log In</a></div>
+            <div class="text-center text-[15px] text-gray-400">{{'register.alreadyHaveAccount' | translate}} <a routerLink="/login"
+                    class="text-[#A2AF9B] underline cursor-pointer">{{'register.logIn' | translate}}</a></div>
         </div>
 
         <!-- <div class="img-layer"> -->
@@ -95,8 +94,8 @@
 
             <div class="layer text-center flex flex-col items-center justify-end">
                 <div class="layer-content translate-y-[-80px] text-white">
-                    <p class="text-xl font-bold">Welcome to Shppvia</p>
-                    <p class="text-[12.5px]">Discover products you love,<br>at price you deserve...</p>
+                    <p class="text-xl font-bold">{{'auth.welcomeToShppvia' | translate}}</p>
+                    <p class="text-[12.5px]">{{'auth.description1' | translate}}<br>{{'auth.description2' | translate}}</p>
                 </div>
 
             </div>

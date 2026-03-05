@@ -1,0 +1,12 @@
+<div class="inline-flex shadow-xs my-3 p-1 rounded-full bg-[#A2AF9B]" role="group">
+    <button (click)="allbtn()" type="button" [class]="{'active-btn': activeCategory() === 'all'}"
+        class="goup-btn dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+        {{'bestSelling.all' | translate}}
+    </button>
+    @for (cat of visibleCategories(); track $index) {
+    <button (click)="selectCategory(cat)" type="button" [class]="{'active-btn': activeCategory() === cat.name}"
+        class="goup-btn dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+        {{cat.name}}
+    </button>
+    }
+</div>

@@ -2,14 +2,14 @@ import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core
 
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms"
 import { AuthService } from '../service/auth.service';
-import { unsubscribe } from 'diagnostics_channel';
 import { Subscription } from 'rxjs';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { InputComponent } from "../../../shared/components/input/input.component";
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule, RouterLink, RouterModule, InputComponent],
+  imports: [ReactiveFormsModule, RouterLink, RouterModule, InputComponent, TranslatePipe],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -105,4 +105,5 @@ registerFrom:WritableSignal<FormGroup> = signal(this.fb.group({
     }
 
   }
+  
 }

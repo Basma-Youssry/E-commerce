@@ -1,0 +1,97 @@
+<section class="card-bg py-20">
+    <div class="container">
+        <div class="caption">
+            <h2 class="head">{{'categories.title' | translate}}</h2>
+
+            <app-category-filter [categoriesList]="categoriesList()" [activeCategory]="activeCategory()"
+                (categorySelected)="handleCategoryChange($event)">
+            </app-category-filter>
+        </div>
+
+        <div class="grid grid-cols-12 lg:gap-25">
+            <div class="hidden lg:block col-span-3">
+                <!-- Filter Sidebar -->
+                <div class="w-64">
+
+                    <h2 class="text-lg font-semibold text-gray-800 mb-6">Filter By</h2>
+
+                    <!-- Accordion Item -->
+                    <div class="border-b border-gray-200 py-4">
+
+                        <!-- Header -->
+                        <button
+                            class="flex cursor-pointer justify-between items-center w-full text-left font-semibold text-gray-800"
+                            onclick="this.nextElementSibling.classList.toggle('hidden');
+                            this.querySelector('svg').classList.toggle('rotate-180')">
+
+                            Category
+
+                            <svg class="w-4 h-4 text-[#A2AF9B] transition-transform duration-300" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <!-- Content -->
+                        <div class="mt-4 space-y-2 text-gray-500 text-sm hidden">
+                            @for (cat of categoriesList(); track $index) {
+                            <div (click)="handleCategoryChange(cat.name)" class="hover:text-green-700 cursor-pointer">
+                                {{cat.name}}
+                            </div>
+                            }
+                        </div>
+
+                    </div>
+
+                    
+                    <!-- Second Accordion -->
+                    <div class="border-b border-gray-200 py-4">
+
+                        <button
+                            class="flex justify-between items-center cursor-pointer w-full text-left font-semibold text-gray-800"
+                            onclick="this.nextElementSibling.classList.toggle('hidden');
+               this.querySelector('svg').classList.toggle('rotate-180')">
+
+                            Price
+
+                            <svg class="w-4 h-4 text-[#A2AF9B] transition-transform duration-300" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <div class="mt-4 space-y-2 text-gray-500 text-sm hidden">
+                            <p class="hover:text-green-700 cursor-pointer" (click)="selectPriceRange(1000,1500)">
+                                1000 - 1500 EGP
+                            </p>
+
+                            <p class="hover:text-green-700 cursor-pointer" (click)="selectPriceRange(1500,2000)">
+                                1500 - 2000 EGP
+                            </p>
+
+                            <p class="hover:text-green-700 cursor-pointer" (click)="selectPriceRange(2000,3000)">
+                                2000 - 3000 EGP
+                            </p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-12 lg:col-span-9">
+                <div class="cards" [class]="
+        activeCategory() === 'all'
+          ? 'grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-20'
+          : 'flex justify-start'">
+                    @for (category of filteredCategories(); track category._id) {
+                    <app-card [category]="category" [categoryName]="categoryName()"
+                        [activeCategory]="activeCategory()"></app-card>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -7,11 +7,12 @@ import { TermPipe } from '../../pipes/term-pipe';
 import { CartService } from '../../../features/cart/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from '../../../features/cart/models/interfaces/cart.interface';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-card',
-  imports: [CommonModule, RouterLink, TermPipe],
+  imports: [CommonModule, RouterLink, TermPipe, TranslatePipe],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })
@@ -19,7 +20,8 @@ export class CardComponent {
 
   private readonly  cartService= inject(CartService);
   private readonly  toastrService= inject(ToastrService);
-
+  private readonly  translateService= inject(TranslateService);
+  
   //Signal syntax
   product:InputSignal<IProduct | undefined> = input<IProduct>();
   category:InputSignal<Icategory | undefined> = input<Icategory>();
@@ -56,4 +58,35 @@ export class CardComponent {
       }
     })
   }
+
+  currentLang():boolean{
+   return this.translateService.currentLang === 'ar';
+  }
+
+  // translateTitle(title: string): string {
+  // if (!this.currentLang()) return title;
+
+  // let result = title.replace('Woman', '').replace('حريمي', '').trim();
+
+  // result = result
+  //   .replace('Standart',  'ستاندرد')
+  //   .replace('Shawl',  'شال')
+  //   .replace('Brown', 'بنى ')
+  //   .replace('Bordeaux', 'نبيتى ');
+
+  // result = result.trim() + 'نسائى' ;
+  // return result
+
+
+  // }
+
+translateDynamicTitle(title: string) {
+  return title
+    .split(' ')
+    .map(word => this.translateService.instant(`title.${word.toLowerCase()}`) || word)
+    .join(' ');
 }
+
+
+}
+
