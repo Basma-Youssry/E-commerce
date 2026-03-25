@@ -87,20 +87,27 @@
 
 <!-- Product Card   (This code after cleaning) -->
 @if (product(); as p) {
-<div class="card text-center h-full">
+<div class="card text-center h-full relative">
+
+    <!-- wishlist icon -->
+    <div (click)="toggleWishlist(); getProductWishListData(p._id)"
+        class="absolute top-2 right-2 bg-white w-7 h-7 rounded-full flex items-center justify-center shadow cursor-pointer">
+        <i [class]="isWishlisted() ? 'fa-solid fa-heart' : 'fa-regular fa-heart'" class="text-red-700 text-xl"></i>
+    </div>
+
     <div [routerLink]="['/details',p.slug ,p.id]">
         <img class="w-3/4 mx-auto -translate-y-1/5 h-[220px] w-[67%]" [src]="p.imageCover" [alt]="p.title" />
+
         <h3 class="text-lg unicode-bidi plaintext rtl:">
-
             {{ translateDynamicTitle(p.title) | term:2 }}
-
         </h3>
+
         <h4 class="text-sm">{{ p.category.name}}</h4>
-        <!-- Normal product component price -->
+
         @if (!showOrderData()) {
         <p class="text-[#A2AF9B]">{{ p.price | currency: 'EGP'}} </p>
         }
-        <!-- Price for all orders component -->
+
         @if (showOrderData()) {
         <p class="text-[#A2AF9B]">{{ price() | currency: 'EGP'}} </p>
         }
@@ -116,6 +123,7 @@
             {{ p.ratingsAverage }}
         </span>
     </div>
+
 </div>
 }
 
@@ -123,6 +131,7 @@
 @if (category(); as c) {
 @if((categoryName() === '' || categoryName() === c.name)){
 @if (activeCategory() !== 'all') {
+    
 <div class="heading mb-15 text-2xl font-bold text-[#324251]">
     <P>{{ c.name}}
         <span></span>
@@ -130,10 +139,15 @@
 </div>
 }
 
-<div class="card text-center mt-4" [class.w-[275px]]="activeCategory() !== 'all'">
+<div class="card text-center mt-4 relative" [class.w-[275px]]="activeCategory() !== 'all'">
+    <!-- wishlist icon -->
+   <!-- <div (click)="toggleWishlist()"
+        class="absolute top-2 right-2 bg-white w-7 h-7 rounded-full flex items-center justify-center shadow cursor-pointer">
+        <i [class]="isWishlisted() ? 'fa-solid fa-heart' : 'fa-regular fa-heart'" class="text-red-700 text-xl"></i>
+    </div> -->
     <img class="w-3/4 mx-auto translate-y-[-18%] h-[220px] w-[67%]" [src]="c.image" [alt]="c.name" />
     <h3 class="text-lg">{{ c.name }}</h3>
-    <p class="text-[#A2AF9B]">{{ c.price | currency: 'EGP' }} </p>
+    <p class="text-[#A2AF9B]">{{ c.price | currency: 'EGP' }}</p>
 
     <div class="text-[12px] text-[#415E72] mt-3 flex justify-between">
         <button class="bottom-style">

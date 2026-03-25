@@ -11,6 +11,7 @@ import { Routes } from '@angular/router';
 import { authGuard } from './core/guards/auth-guard';
 import { inloggedGuard } from './core/guards/inlogged-guard';
 import { CategoriesComponent } from './features/categories/categories.component';
+import { WishlistComponent } from './features/wishlist/wishlist.component';
 
 
 
@@ -38,6 +39,7 @@ export const routes: Routes = [
             { path: 'check-out', component: CheckoutComponent, title: 'check-out page' },
             { path: 'check-out/:id', component: CheckoutComponent, title: 'check-out page' },
             { path: 'categories', component: CategoriesComponent, title: 'categories page' },
+            { path: 'wishlist', component: WishlistComponent, title: 'wishlist page' },
             { path: 'allorders', loadComponent: ()=> import('./features/allorders/allorders.component').then((c)=>c.AllordersComponent),title: 'allorders page' },
             { path: 'cart', loadComponent: ()=> import('./features/cart/cart.component').then((c)=>c.CartComponent),title: 'Cart page' }
         ]

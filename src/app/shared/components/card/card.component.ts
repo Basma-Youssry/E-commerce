@@ -1,4 +1,4 @@
-import { Component, inject, Input, input, InputSignal, signal } from '@angular/core';
+import { Component, inject, Input, input, InputSignal, signal, WritableSignal } from '@angular/core';
 import { IProduct } from '../../../core/interfaces/Iproduct.interface';
 import { Icategory } from '../../../features/home/interfaces/icategory.interface';
 import { CommonModule, UpperCasePipe } from '@angular/common';
@@ -8,6 +8,7 @@ import { CartService } from '../../../features/cart/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from '../../../features/cart/models/interfaces/cart.interface';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { WishlistService } from '../../../features/wishlist/services/wishlist.service';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class CardComponent {
   private readonly  cartService= inject(CartService);
   private readonly  toastrService= inject(ToastrService);
   private readonly  translateService= inject(TranslateService);
+  private readonly  wishlistService= inject(WishlistService);
   
   //Signal syntax
   product:InputSignal<IProduct | undefined> = input<IProduct>();
@@ -29,6 +31,8 @@ export class CardComponent {
   activeCategory:InputSignal<string> = input<string>('');
   price:InputSignal<number | undefined> = input<number>();
   showOrderData:InputSignal<boolean | undefined> = input<boolean>();
+
+  isWishlisted:WritableSignal<boolean> = signal(false);
   //zone syntax
   // @Input() product?:IProduct;
   // @Input() category?:Icategory;
@@ -87,6 +91,17 @@ translateDynamicTitle(title: string) {
     .join(' ');
 }
 
+toggleWishlist(){
+  this.isWishlisted.set(!this.isWishlisted());
+}
 
+getProductWishListData(id:string):void{
+  this.wishlistService.addProductToWishList(id).subscribe({
+    next:(res)=>{
+      console.log(res);
+      
+    }
+  })
+}
 }
 

@@ -34,7 +34,18 @@
                 </div>
             </div>
             <hr class="text-[#D1D1D8] mb-4">
+            }@empty {
+            <div class="wishlist-empty text-center flex flex-col items-center">
+                <div class="wishlist-empty-img w-95 my-6">
+                    <img class="rounded-2xl" src="/images/cart.png" alt="Broken heart">
+                </div>
+                <button routerLink="/home" class="bg-[#A2AF9B] rounded-xl text-white px-5 py-3 cursor-pointer">
+                    Start shopping
+                </button>
+            </div>
+
             }
+
 
         </div>
 

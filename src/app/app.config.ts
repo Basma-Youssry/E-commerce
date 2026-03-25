@@ -25,7 +25,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch(),
-      withInterceptors([headerInterceptor, errorInterceptor, loadingInterceptor])),
+    withInterceptors([headerInterceptor, errorInterceptor, loadingInterceptor])),
     provideAnimations(),
     importProvidersFrom(CookieService, NgxSpinnerModule, TranslateModule.forRoot({
       loader: {

@@ -159,6 +159,15 @@
       "whyText": "We are a passionate team dedicated to building modern and user-friendly digital experiences. Our mission is to deliver high-quality solutions that combine creativity with functionality. We focus on clean design, responsive layouts, and seamless performance. Customer satisfaction is at the heart of everything we do. We believe in continuous learning, innovation."
     }
   },
+  "wishList":{
+     "breadcrumb": {
+      "home": "Home",
+      "WishList": "WishList"
+    },
+    "heading":{
+      "WishList": "WishList"
+    }
+  },
   "common": {
     "egp": "EGP",
     "search": "Search",

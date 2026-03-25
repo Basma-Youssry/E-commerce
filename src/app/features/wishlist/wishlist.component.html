@@ -1,0 +1,62 @@
+<section>
+    <div class="container">
+        <div class="wishListBox">
+            <!-- Breadcrumb -->
+            <div>
+                <p class="text-sm text-gray-400 mb-7 relative left-8">
+                    <span class="text-[#A2AF9B] font-bold">{{ 'wishList.breadcrumb.home' | translate }}</span>
+                    <span class="mx-2">></span>
+                    <span>{{ 'wishList.breadcrumb.WishList' | translate }}</span>
+                </p>
+            </div>
+            <div class="caption">
+                <i class="fa-regular fa-heart text-[#A2AF9B] text-3xl"></i>
+                <h1 class="head text-gray-700 text-[25px] md:text-[33px]">WishList</h1>
+            </div>
+            @for (item of wishListDetails(); track item._id) {
+            <div class="grid grid-cols-12 gap-7 bg-white mb-3">
+                <div class="col-span-2 flex flex-col justify-center">
+                    <div class="cart-img w-full">
+                        <img [src]="item.imageCover" class="w-full h-full rounded-[8px]" [alt]="item.title">
+                    </div>
+                </div>
+                <div class="col-span-10">
+                    <div class="cart-info h-full flex justify-between items-center py-5">
+                        <div class="cart-details">
+                            <p class="mb-3 text-gray-800 text-[16px] lg:text-xl">{{item.title}}</p>
+                            <div class="flex items-center space-x-5">
+                                <div class="text-[16px] font-[600] text-gray-800 me-2">
+                                    {{item.price | currency: 'EGP'}}
+                                </div>
+
+                                <button (click)="removeProduct(item._id)"><i
+                                        class="fas fa-trash-can cursor-pointer text-[#A2AF9B] cursor-pointer"></i></button>
+                            </div>
+
+                        </div>
+                        <span (click)="addProductCart(item._id)"
+                            class="bg-[#A2AF9B] rounded-xl text-white px-1 py-2 text-[12px] md:text-[16px] md:px-5 md:py-3 cursor-pointer">Add to cart</span>
+                    </div>
+                </div>
+            </div>
+            <hr class="text-[#D1D1D8] mb-4">
+            }@empty {
+            <div class="wishlist-empty text-center flex flex-col  items-center">
+                <div class="wishlist-empty-img w-70">
+                    <img src="/images/pngtree-broken-heart-line-icon-png-image_9061003.png" alt="Broken heart">
+                </div>
+                <h2 class="text-3xl font-bold">Your wishlist is empty :(</h2>
+                <p class="my-4 text-gray-600">Start adding items to your wishlist</p>  
+                <button routerLink="/home" class="bg-[#A2AF9B] rounded-xl text-white px-5 py-3 cursor-pointer">
+                    Start shopping
+                </button>
+            </div>
+
+            }
+
+
+
+        </div>
+
+    </div>
+</section>

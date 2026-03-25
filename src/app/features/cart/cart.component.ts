@@ -50,7 +50,8 @@ export class CartComponent implements OnInit{
     this.cartService.removeSpecificCartItem(id).subscribe({
       next:(res)=>{
         this.cartService.countNumber.set(res.numOfCartItems);
-       this.cartDetails.set(res.data);        
+       this.cartDetails.set(res.data);    
+  
       }
       // Handling Errors inside Interceptop
 
