@@ -3,7 +3,7 @@
         <h1 class="text-[40px] font-[600] text-gray-700">{{'checkout.title' | translate}}</h1>
 
         <form [formGroup]="checkOutForm()">
-            <app-input [element]="'text'" [control]="this.checkOutForm().get('shippingAddress')?.get('details')" [idInput]="'details'" [labelInput]="'Details'"></app-input>
+            <app-input [element]="'textarea'" [control]="this.checkOutForm().get('shippingAddress')?.get('details')" [idInput]="'details'" [labelInput]="'Details'"></app-input>
             <app-input [element]="'input'" [typeInput]="'tel'" [control]="this.checkOutForm().get('shippingAddress')?.get('phone')" [idInput]="'phone'" [labelInput]="'Phone'">
                 accept only Egypt phone numbers
             </app-input>
