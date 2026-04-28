@@ -1,0 +1,29 @@
+<header class="relative text-white min-h-[90vh] flex items-center bg-cover bg-center"
+  style="background-image: url('/images/landing cover.png');">
+  <!-- Dark gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto w-full px-6 flex flex-col md:flex-row items-center justify-between">
+
+    <!-- Left Content -->
+    <div class="text-left max-w-xl">
+      <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4">
+        {{ 'landingpage.hero.title_line1' | translate }}<br />{{ 'landingpage.hero.title_line2' | translate }}
+      </h1>
+
+      <p class="text-lg md:text-xl text-gray-200 mb-6">
+        {{ 'landingpage.hero.subtitle' | translate }}
+      </p>
+
+      <button routerLink="/register" [attr.aria-label]="'hero.cta' | translate" class="cursor-pointer mt-6 px-6 py-3 rounded-lg font-semibold transition
+                     focus:outline-none focus:ring-2 focus:ring-[#A2AF9B]"
+        style="background-color:#A2AF9B; color: white;">
+        {{ 'landingpage.hero.cta' | translate }}
+      </button>
+    </div>
+
+    <!-- Right side spacing (image is already background, so we just reserve space) -->
+    <div class="hidden md:block w-1/2"></div>
+
+  </div>
+</header>

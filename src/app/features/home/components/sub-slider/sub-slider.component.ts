@@ -1,16 +1,18 @@
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { Component, AfterViewInit } from '@angular/core';
-import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 Swiper.use([Navigation]);
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
+import Swiper from 'swiper';
+
 import { SwiperOptions } from 'swiper/types';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sub-slider',
-  imports: [CarouselModule],
+  imports: [CarouselModule, TranslatePipe],
   templateUrl: './sub-slider.component.html',
   styleUrl: './sub-slider.component.css'
 })

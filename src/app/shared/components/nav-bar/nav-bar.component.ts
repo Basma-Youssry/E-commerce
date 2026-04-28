@@ -1,4 +1,4 @@
-import { Component, computed, ElementRef, inject, Input, PLATFORM_ID, signal, Signal, ViewChild, viewChild, WritableSignal } from '@angular/core';
+import { Component, computed, ElementRef, inject, input, Input, PLATFORM_ID, signal, Signal, ViewChild, viewChild, WritableSignal } from '@angular/core';
 import { FlowbiteService } from '../../../core/services/flowbite.service';
 import { initFlowbite } from 'flowbite';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -11,7 +11,7 @@ import { TranslateServicee } from '../../../core/services/translate/TranslateSer
 @Component({
   selector: 'app-nav-bar',
   imports: [RouterLink, RouterLinkActive, TranslatePipe, NgClass],
-templateUrl: './nav-bar.component.html',
+  templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
@@ -22,7 +22,9 @@ constructor(private flowbiteService: FlowbiteService) {}
 isLangOpen:WritableSignal<boolean> = signal(false);
 
  @Input({required:true}) isLogin!:boolean;
- 
+@Input({ required: true }) landing!: boolean;
+@Input({ required: true }) landingpage!: boolean;
+
  private readonly cartService = inject(CartService);
  private readonly  pLATFORM_ID= inject(PLATFORM_ID);
  private readonly  translateServicee= inject(TranslateServicee);

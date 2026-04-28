@@ -18,6 +18,7 @@ import { HttpLoaderFactory } from './core/utils/HttpLoaderFactory';
 // import { CustomTranslateLoader } from './core/utils/CustomTranslateLoader';
 
 
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),

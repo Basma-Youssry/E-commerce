@@ -3,10 +3,11 @@ import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core
 import { BrandsService } from './Services/brands.service';
 import { FormsModule } from '@angular/forms';
 import { IBrands } from '../../core/interfaces/brands.interface';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-brands',
-  imports: [FormsModule],
+  imports: [FormsModule, TranslatePipe],
   templateUrl: './brands.component.html',
   styleUrl: './brands.component.css',
 })

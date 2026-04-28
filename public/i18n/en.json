@@ -23,7 +23,23 @@
   "bestSelling": {
     "title": "Best selling Products",
     "subtitle": "Best Selling Products",
-    "all": "All"
+    "all": "All",
+    "fashionwomen": "Women's Fashion",
+    "fashionmen": "Men's Fashion",
+    "music": "Music",
+    "supermarket": "supermarket",
+    "beauty_health": "Beauty & Health",
+    "books": "books",
+    "home": "home",
+    "baby_toys": "Baby & Toys",
+    "electronics": "electronics",
+    "mobiles": "mobiles"
+  },
+  "slider": {
+    "womenFashion": "Women's Fashion",
+    "menFashion": "Men's Fashion",
+    "mobiles": "Mobiles",
+    "watches": "Watches"
   },
   "topProducts": {
     "title": "Top Products",
@@ -34,7 +50,22 @@
     "bordeaux": "Bordeaux",
     "brown": "Brown",
     "woman": "Women",
-    "standart": "Standard"
+    "standart": "Standard",
+    "logo_t_shirt_green": "Logo T-Shirt Green",
+    "karma_women": "Karma Women",
+    "socks_women": "Women's Socks",
+    "relaxed_fit": "Relaxed Fit"
+  },
+  "category": {
+    "women": "women's",
+    "men": "men's",
+    "fashion": "fashionb "
+  },
+  "brands": {
+    "title": "Get The Fresh Cart App",
+    "subtitle": "We Will Send You A Link, Open It On Your Phone!",
+    "placeholder": "Enter your email",
+    "button": "Share App Link"
   },
   "products": {
     "title": "Products list"
@@ -46,7 +77,28 @@
     "date": "01 Aug 2025 - 03 Aug 2025"
   },
   "categories": {
-    "title": "Categories"
+    "title": "Categories",
+    "filter": {
+      "title": "Filter By",
+      "category": "Category",
+      "price": "Price",
+      "ranges": {
+        "r1": "1000 - 1500 EGP",
+        "r2": "1500 - 2000 EGP",
+        "r3": "2000 - 3000 EGP"
+      }
+    }
+  },
+  "contactUsPage": {
+    "breadcrumb": {
+      "home": "Home",
+      "contact": "Contact Us"
+    },
+    "title": "Contact me",
+    "subtitle": "Feel free to reach out for any questions, collaborations, or project inquiries.",
+    "email": "Email",
+    "terms": "I accept the terms",
+    "submit": "Submit"
   },
   "cart": {
     "title": "Cart",
@@ -97,7 +149,7 @@
     "Password": "Password",
     "ConfirmPassword": "ConfirmPassword",
     "Phone": "Phone",
-    "iAgreeWith": "I agree with the Egyption number",
+    "iAgreeWith": "I agree with",
     "termsAndConditions": "terms and conditions",
     "signUp": "Sign Up",
     "orSignUpWith": "Or sign up with",
@@ -126,6 +178,24 @@
     "instagram": "Instagram",
     "twitter": "Twitter",
     "linkedin": "Linkedin"
+  },
+  "input": {
+    "select": {
+      "placeholder": "Select one...",
+      "options": {
+        "support": "Support",
+        "sales": "Sales",
+        "general": "General Inquiry"
+      }
+    },
+    "errors": {
+      "required": "Input is required.",
+      "minlength": "Input should be at least 2 characters",
+      "maxlength": "Input should be less than or equal 20 characters",
+      "email": "Please enter a valid email address",
+      "pattern": "Invalid format",
+      "mismatch": "Password confirmation isn't correct"
+    }
   },
   "contactUs": {
     "firstName": "first Name",
@@ -159,13 +229,108 @@
       "whyText": "We are a passionate team dedicated to building modern and user-friendly digital experiences. Our mission is to deliver high-quality solutions that combine creativity with functionality. We focus on clean design, responsive layouts, and seamless performance. Customer satisfaction is at the heart of everything we do. We believe in continuous learning, innovation."
     }
   },
-  "wishList":{
-     "breadcrumb": {
+  "wishList": {
+    "breadcrumb": {
       "home": "Home",
-      "WishList": "WishList"
+      "wishlist": "Wishlist"
     },
-    "heading":{
-      "WishList": "WishList"
+    "title": "Wishlist",
+    "actions": {
+      "addToCart": "Add to cart",
+      "remove": "Remove"
+    },
+    "empty": {
+      "title": "Your wishlist is empty :(",
+      "subtitle": "Start adding items to your wishlist",
+      "button": "Start shopping"
+    }
+  },
+  "landingpage": {
+    "nav": {
+      "features": "Features",
+      "pricing": "Pricing",
+      "faq": "FAQ",
+      "contact": "Contact"
+    },
+    "hero": {
+      "title_line1": "Shop Smarter,",
+      "title_line2": "Live Better",
+      "subtitle": "Your one-stop shop for everything you need.",
+      "cta": "Shop Now"
+    },
+    "features": {
+      "title": "Features",
+      "fast_delivery": {
+        "title": "Fast Delivery",
+        "description": "Get your products delivered quickly."
+      },
+      "secure_payment": {
+        "title": "Secure Payment",
+        "description": "Your transactions are safe."
+      },
+      "quality_products": {
+        "title": "Quality Products",
+        "description": "Only the best products."
+      }
+    },
+    "pricing": {
+      "title": "Pricing",
+      "basic": {
+        "name": "Basic",
+        "tagline": "For individuals getting started",
+        "price": "$9",
+        "period": "/month",
+        "features": [
+          "Access to basic features",
+          "Email support",
+          "Limited products"
+        ],
+        "cta": "Choose Plan"
+      },
+      "pro": {
+        "name": "Pro",
+        "tagline": "Best for growing businesses",
+        "price": "$29",
+        "period": "/month",
+        "features": [
+          "All Basic features",
+          "Priority support",
+          "Unlimited products"
+        ],
+        "cta": "Choose Plan"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "tagline": "For large-scale companies",
+        "price": "$99",
+        "period": "/month",
+        "features": [
+          "All Pro features",
+          "Dedicated support",
+          "Custom integrations"
+        ],
+        "cta": "Choose Plan"
+      }
+    },
+    "faq": {
+      "title": "FAQ",
+      "payment_methods": {
+        "question": "Payment methods?",
+        "answer": "Cards & PayPal"
+      },
+      "refunds": {
+        "question": "Refunds?",
+        "answer": "30-day policy"
+      },
+      "support": {
+        "question": "Support?",
+        "answer": "24/7 support"
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "name_label": "Name",
+      "submit": "Send Message"
     }
   },
   "common": {

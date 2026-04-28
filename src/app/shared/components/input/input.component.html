@@ -22,81 +22,67 @@
             required></textarea>
         }
         @else if (element === 'select') {
-            <select  [formControl]="control" [class]="{
+        <select [formControl]="control" [class]="{
       'border-green-900': control?.valid,
       'border-red-900': control?.invalid && control?.touched
     }" class="register-input focus:!ring-2 focus:!ring-[#DCCFC0] 
            bg-neutral-secondary-medium text-heading text-sm 
            rounded-[5px] w-full px-3 py-2.5 
            outline-none border">
-                <option value="" disabled selected>Select one...</option>
-                <option value="support">Support</option>
-                <option value="sales">Sales</option>
-                <option value="general">General Inquiry</option>
-            </select>
-<!-- 
-            <p *ngIf="isInvalid('topic')" class="text-red-900 text-sm mt-1">
-                Please select a topic
-            </p> -->
-        }
 
+            <option value="" disabled selected>
+                {{ 'input.select.placeholder' | translate }}
+            </option>
 
-        @if(idInput === "password" || idInput === "rePassword"){
-        <span (click)="flag = !flag">
-            @if (flag) {
-            <!-- Eye open -->
-            <svg xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 text-[#A2AF9B] absolute end-2 top-1/2 -translate-y-1/2 cursor-pointer " fill="none"
-                viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5
-                                    c4.478 0 8.268 2.943 9.542 7
-                                    -1.274 4.057-5.064 7-9.542 7
-                                    -4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-            }@else {
-            <!-- Eye closed -->
-            <svg xmlns="http://www.w3.org/2000/svg"
-                class="w-5 h-5 cursor-pointer text-[#A2AF9B] absolute end-2 top-1/2 -translate-y-1/2" fill="none"
-                viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3l18 18M10.73 5.073A9.97 9.97 0 0112 5
-                                    c4.478 0 8.268 2.943 9.542 7
-                                    a9.973 9.973 0 01-4.132 5.411M9.88 9.88
-                                    a3 3 0 104.24 4.24" />
-            </svg>
-            }
+            <option value="support">
+                {{ 'input.select.options.support' | translate }}
+            </option>
 
-        </span>
+            <option value="sales">
+                {{ 'input.select.options.sales' | translate }}
+            </option>
+
+            <option value="general">
+                {{ 'input.select.options.general' | translate }}
+            </option>
+
+        </select>
         }
     </div>
-
 
     @if (control?.errors && control?.touched) {
-    <div class="flex p-4 mb-4 text-sm text-[#8B0836] bg-[#FFF1F2] rounded-lg border border-[#FFCDD3]" role="alert">
-        <div>
-            <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
-                @if (control?.hasError('required')) {
-                <li>Input is required.</li>
-                }
-                @if (control?.hasError('minlength')) {
-                <li>Input should be more than or equal 2 chars</li>
+<div class="flex p-4 mb-4 text-sm text-[#8B0836] bg-[#FFF1F2] rounded-lg border border-[#FFCDD3]" role="alert">
+  <div>
+    <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
 
-                }
-                @if (control?.hasError('maxlength')) {
-                <li>Input should be less than or equal 20 chars</li>
-                }
-                @if (control?.hasError('email')) {
-                <li>Please enter a valid email address</li>
-                }
-                @if (control?.hasError('pattern')) {
-                <ng-content></ng-content>
-                }
-                @if (control?.hasError('mismatch')) {
-                <li>Password confirmation isn't correct</li>
-                }
-            </ul>
-        </div>
-    </div>
+      @if (control?.hasError('required')) {
+      <li>{{ 'input.errors.required' | translate }}</li>
+      }
+
+      @if (control?.hasError('minlength')) {
+      <li>{{ 'input.errors.minlength' | translate }}</li>
+      }
+
+      @if (control?.hasError('maxlength')) {
+      <li>{{ 'input.errors.maxlength' | translate }}</li>
+      }
+
+      @if (control?.hasError('email')) {
+      <li>{{ 'input.errors.email' | translate }}</li>
+      }
+
+      @if (control?.hasError('pattern')) {
+      <li>{{ 'input.errors.pattern' | translate }}</li>
+      }
+
+      @if (control?.hasError('mismatch')) {
+      <li>{{ 'input.errors.mismatch' | translate }}</li>
+      }
+
+     </ul>
+  </div>
+</div>
     }
+
+
 </div>

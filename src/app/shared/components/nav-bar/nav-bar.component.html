@@ -1,6 +1,9 @@
-<nav class="bg-[#EEEEEE] fixed right-0 left-0 z-50  border-gray-200 dark:bg-[#17313E]">
+<nav [ngClass]="{
+  'bg-transparent absolute': landing,
+  'bg-[#EEEEEE] fixed ': !landing,
+}" class="right-0 left-0 z-50  border-gray-200 dark:bg-[#17313E]">
     <!-- <div class="container"> -->
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2">
+    <div class="container max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2">
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
             <h1 class="text-[#A2AF9B] self-center text-2xl font-semibold whitespace-nowrap dark:text-[#F3E2D4]">
                 Shoppvia
@@ -72,6 +75,33 @@
                         aria-current="page"><i class="fa-solid fa-user"></i></a>
                 </li>
             </ul>
+            }@else{
+            @if (landingpage) {
+            <ul
+                class="font-medium grow-[2] flex flex-col justify-center p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-6 md:mt-0 md:border-0  dark:bg-gray-800  dark:border-gray-700">
+                <li>
+                    <a href="#feature" routerLinkActive="text-active"
+                        class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">{{'landingpage.nav.features' | translate}}</a>
+                </li>
+                <li>
+                    <a href="#pricing" routerLinkActive="text-active"
+                        class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">{{'landingpage.nav.pricing' | translate}}</a>
+                </li>
+                <li>
+                    <a href="#Faq" routerLinkActive="text-active"
+                        class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">{{'landingpage.nav.faq' | translate}}</a>
+                </li>
+                <li>
+                    <a href="#contact" routerLinkActive="text-active"
+                        class="block py-2 px-3 text-md text-[#A2AF9B] hover:text-[#958676] transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        aria-current="page">{{'landingpage.nav.contact' | translate}}</a>
+                </li>
+            </ul>
+            }
+
             }
 
             <ul
@@ -107,17 +137,17 @@
                     </li>
                 </ul>
                 @if(isLogin === false){
-                <li>
+                <li class="rtl:px-4">
                     <a routerLink="/login"
-                        class="block font-bold py-2 px-3 text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        class="block font-bold text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
                         aria-current="page">{{'nav.login' | translate}}</a>
                 </li>
                 <li>
                     <a routerLink="/register"
-                        class="block font-bold py-2 px-3 text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
+                        class="block font-bold text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"
                         aria-current="page">{{'nav.register' | translate}}</a>
                 </li>
-                }@else {
+                }@else{
                 <li>
                     <a (click)="signOut()"
                         class="block font-bold ms-3 cursor-pointer py-2 px-3 text-md text-[#958676]  transition-all duration-1000 rounded-sm md:bg-transparent  md:p-0 dark:text-[#F3E2D4]"

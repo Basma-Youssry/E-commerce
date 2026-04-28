@@ -3,10 +3,10 @@
         class="goup-btn dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
         {{'bestSelling.all' | translate}}
     </button>
-    @for (cat of visibleCategories(); track $index) {
+    @for (cat of translatedCategories(); track $index) {
     <button (click)="selectCategory(cat)" type="button" [class]="{'active-btn': activeCategory() === cat.name}"
         class="goup-btn dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
-        {{cat.name}}
+        {{ cat.translatedName| translate }}
     </button>
     }
 </div>

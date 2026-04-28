@@ -12,10 +12,12 @@ import { authGuard } from './core/guards/auth-guard';
 import { inloggedGuard } from './core/guards/inlogged-guard';
 import { CategoriesComponent } from './features/categories/categories.component';
 import { WishlistComponent } from './features/wishlist/wishlist.component';
+import { LandingLayoutComponent } from './core/layouts/landing-layout/landing-layout.component';
 
 
 
 export const routes: Routes = [
+    {path: '', component: LandingLayoutComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     {
         path: '', component: AuthLayoutComponent, canActivate:[inloggedGuard],

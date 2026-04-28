@@ -3,7 +3,7 @@ import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core
 import { CategoriesBestSallerService } from '../../services/categories-best-saller.service';
 import { Icategory } from '../../interfaces/icategory.interface';
 import { CardComponent } from '../../../../shared/components/card/card.component';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { CategoryFilterComponent } from "../../../../shared/components/category-filter/category-filter.component";
 
 
@@ -22,9 +22,19 @@ export class BestSellingComponent implements OnInit {
   activeCategory: WritableSignal<string> = signal('all');
 
   private readonly categoriesBestSallerService = inject(CategoriesBestSallerService);
+  private readonly translateService = inject(TranslateService);
 
+
+  currentLang = this.translateService.currentLang;
+
+
+ 
   ngOnInit(): void {
     this.getAllCategoriesData();
+
+    this.translateService.onLangChange.subscribe((lang) => {
+      this.currentLang = lang.lang;
+  });
   }
 
 
@@ -74,4 +84,31 @@ export class BestSellingComponent implements OnInit {
       this.activeCategory.set(name);
     }
   }
+
+
+  translateCategoryName(name: string): string {
+  const words = name.split(' ');
+
+  const translatedWords = words.map(word => {
+    const key = `category.${word.toLowerCase()}`;
+    const translated = this.translateService.instant(key);
+    return translated === key ? word : translated;
+  });
+
+  if (this.translateService.currentLang === 'ar' && translatedWords.length === 2) {
+    return `${translatedWords[1]} ${translatedWords[0]}`;
+  }
+
+  return translatedWords.join(' ');
+}
+
+translatedCategoriesList() {
+  return this.categoriesList().slice(0, 3).map(cat => ({
+    ...cat,
+    translatedName: this.translateCategoryName(cat.name) // 👈 بدل name
+  }));
+}
+
+
+
 }

@@ -1,0 +1,135 @@
+<section aria-labelledby="pricing-title" class="py-16 bg-gray-50 px-4" id="pricing">
+  <div class="max-w-6xl mx-auto">
+
+    <h2
+      id="pricing-title"
+      class="text-3xl font-bold text-center mb-10 text-[#A2AF9B]"
+    >
+      {{ 'landingpage.pricing.title' | translate }}
+    </h2>
+
+    <ul class="grid gap-6 md:grid-cols-3">
+
+      <!-- Basic Plan -->
+      <li>
+        <article class="h-full cursor-pointer bg-white p-6 rounded-xl shadow flex flex-col justify-between border border-transparent">
+
+          <header>
+            <h3 class="text-xl font-semibold text-[#A2AF9B]">
+              {{ 'landingpage.pricing.basic.name' | translate }}
+            </h3>
+
+            <p class="text-gray-600 mt-2">
+              {{ 'landingpage.pricing.basic.tagline' | translate }}
+            </p>
+          </header>
+
+          <div class="my-6">
+            <p class="text-4xl font-bold">
+              {{ 'landingpage.pricing.basic.price' | translate }}
+            </p>
+
+            <p class="text-gray-500">
+              {{ 'landingpage.pricing.basic.period' | translate }}
+            </p>
+          </div>
+
+          <ul class="space-y-2 text-gray-600">
+            <li>✔ {{ 'landingpage.pricing.basic.features.0' | translate }}</li>
+            <li>✔ {{ 'landingpage.pricing.basic.features.1' | translate }}</li>
+            <li>✔ {{ 'landingpage.pricing.basic.features.2' | translate }}</li>
+          </ul>
+
+          <button
+            class="mt-6 cursor-pointer w-full py-2 rounded-lg text-white"
+            style="background-color: #DCCFC0;"
+          >
+            {{ 'landingpage.pricing.basic.cta' | translate }}
+          </button>
+
+        </article>
+      </li>
+
+      <!-- Pro Plan -->
+      <li>
+        <article class="h-full cursor-pointer bg-white p-6 rounded-xl shadow flex flex-col justify-between border-2 border-[#DCCFC0]">
+
+          <header>
+            <h3 class="text-xl font-semibold text-[#A2AF9B]">
+              {{ 'landingpage.pricing.pro.name' | translate }}
+            </h3>
+
+            <p class="text-gray-600 mt-2">
+              {{ 'landingpage.pricing.pro.tagline' | translate }}
+            </p>
+          </header>
+
+          <div class="my-6">
+            <p class="text-4xl font-bold">
+              {{ 'landingpage.pricing.pro.price' | translate }}
+            </p>
+
+            <p class="text-gray-500">
+              {{ 'landingpage.pricing.pro.period' | translate }}
+            </p>
+          </div>
+
+          <ul class="space-y-2 text-gray-600">
+            <li>✔ {{ 'landingpage.pricing.pro.features.0' | translate }}</li>
+            <li>✔ {{ 'landingpage.pricing.pro.features.1' | translate }}</li>
+            <li>✔ {{ 'landingpage.pricing.pro.features.2' | translate }}</li>
+          </ul>
+
+          <button
+            class="mt-6 cursor-pointer w-full py-2 rounded-lg text-white"
+            style="background-color: #DCCFC0;"
+          >
+            {{ 'landingpage.pricing.pro.cta' | translate }}
+          </button>
+
+        </article>
+      </li>
+
+      <!-- Enterprise Plan -->
+      <li>
+        <article class="h-full cursor-pointer bg-white p-6 rounded-xl shadow flex flex-col justify-between border border-transparent">
+
+          <header>
+            <h3 class="text-xl font-semibold text-[#A2AF9B]">
+              {{ 'landingpage.pricing.enterprise.name' | translate }}
+            </h3>
+
+            <p class="text-gray-600 mt-2">
+              {{ 'landingpage.pricing.enterprise.tagline' | translate }}
+            </p>
+          </header>
+
+          <div class="my-6">
+            <p class="text-4xl font-bold">
+              {{ 'landingpage.pricing.enterprise.price' | translate }}
+            </p>
+
+            <p class="text-gray-500">
+              {{ 'landingpage.pricing.enterprise.period' | translate }}
+            </p>
+          </div>
+
+          <ul class="space-y-2 text-gray-600">
+            <li>{{ 'landingpage.pricing.enterprise.features.0' | translate }}</li>
+            <li>{{ 'landingpage.pricing.enterprise.features.1' | translate }}</li>
+            <li>{{ 'landingpage.pricing.enterprise.features.2' | translate }}</li>
+          </ul>
+
+          <button
+            class="mt-6 w-full cursor-pointer py-2 rounded-lg text-white"
+            style="background-color: #DCCFC0;"
+          >
+            {{ 'landingpage.pricing.enterprise.cta' | translate }}
+          </button>
+
+        </article>
+      </li>
+
+    </ul>
+  </div>
+</section>

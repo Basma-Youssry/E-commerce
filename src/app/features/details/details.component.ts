@@ -14,25 +14,26 @@ import { TranslatePipe } from '@ngx-translate/core';
   imports: [TranslatePipe],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css',
-  schemas: [CUSTOM_ELEMENTS_SCHEMA] 
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class DetailsComponent implements OnInit{
-  private readonly  activatedRoute = inject(ActivatedRoute);
-  private readonly  productdetailsService = inject(ProductdetailsService);
-  private readonly  cartService = inject(CartService);
-  private readonly  toastrService = inject(ToastrService);
+export class DetailsComponent implements OnInit {
+  private readonly activatedRoute = inject(ActivatedRoute);
+  private readonly productdetailsService = inject(ProductdetailsService);
+  private readonly cartService = inject(CartService);
+  private readonly toastrService = inject(ToastrService);
 
   //Signal syntax
-  id:WritableSignal<string | null> = signal(null);
+  id: WritableSignal<string | null> = signal(null);
   productDetails: WritableSignal<IProduct> = signal({} as IProduct);
-  cartItem:WritableSignal<any> = signal(undefined);
-  cartCount = computed(()=>{
+  cartItem: WritableSignal<any> = signal(undefined);
+  cartCount = computed(() => {
     return this.cartItem()?.count ?? 0;
   })
 
   productId = computed(() => this.cartItem()?.product?._id ?? null);
-  productCount:WritableSignal<number> = signal(0);
-  flag:WritableSignal<boolean> = signal(true);
+  productCount: WritableSignal<number> = signal(0);
+  flag: WritableSignal<boolean> = signal(true);
+  translateService: any;
   //Zone.js syntax
   // id:string|null = null;
   // productDetails:IProduct = {} as  IProduct;
@@ -43,43 +44,43 @@ export class DetailsComponent implements OnInit{
     this.getProductDetailsData();
     this.getLoggedUserCart();
   }
-  getProductId():void{
+  getProductId(): void {
     this.activatedRoute.paramMap.subscribe({
-      next: (urlParams)=>{
-       this.id.set(urlParams.get('id'));
+      next: (urlParams) => {
+        this.id.set(urlParams.get('id'));
 
-        console.log( urlParams.get('id'));
+        console.log(urlParams.get('id'));
       }
     })
   }
 
-  getProductDetailsData():void{
+  getProductDetailsData(): void {
     this.productdetailsService.getProductDetails(this.id()).subscribe({
-      next:(res)=>{
+      next: (res) => {
         this.productDetails.set(res.data);
 
         console.log(this.productDetails);
-                
+
       }
     })
   }
 
-  getProductCartData(id:string):void{
+  getProductCartData(id: string): void {
     this.cartService.addProductToCart(id).subscribe({
-      next: (res)=>{
-        if(res.status === "success"){
+      next: (res) => {
+        if (res.status === "success") {
           this.toastrService.success(res.message, "Shoppavia");
-          
+
           const product = res.data.products.find(
-          (item: any) => item.product === id
-        );
+            (item: any) => item.product === id
+          );
 
-        this.productCount.set(product.count);
-        this.flag.set(false);
-        // console.log(this.productCount);
+          this.productCount.set(product.count);
+          this.flag.set(false);
+          // console.log(this.productCount);
 
-        this.cartService.countNumber.set(res.numOfCartItems);
-        console.log(res);
+          this.cartService.countNumber.set(res.numOfCartItems);
+          console.log(res);
 
         }
 
@@ -87,7 +88,7 @@ export class DetailsComponent implements OnInit{
       },
       // error:(err)=>{
       //   console.log(err);
-        
+
       // }
     })
   }
@@ -98,39 +99,79 @@ export class DetailsComponent implements OnInit{
   //     }
   //   })
   // }
-  getLoggedUserCart():void{
+  getLoggedUserCart(): void {
     this.cartService.getLoggedUserCart().subscribe({
-      next:(res)=>{
+      next: (res) => {
         const item = res.data.products.find(
-          (item:any)=> item.product._id === this.productDetails()._id
+          (item: any) => item.product._id === this.productDetails()._id
         );
 
         this.cartItem.set(item);
         console.log(this.cartItem());
-        
+
       },
       // error:(err)=>{
       //   console.log(err);
-        
+
       // }
     })
   }
 
-  updateCartProductCount(id:string, count:number):void{
+  updateCartProductCount(id: string, count: number): void {
     this.cartService.updateCartProductCount(id, count).subscribe({
-      next: (res)=>{
-       
-     const item = res.data.products.find(
-          (item:any) => item.product._id === id
+      next: (res) => {
+
+        const item = res.data.products.find(
+          (item: any) => item.product._id === id
         )
         this.cartItem.set(item);
-        console.log(this.cartItem()); 
+        console.log(this.cartItem());
       },
-      error: (err)=>{
+      error: (err) => {
         console.log(err);
-        
+
       }
     })
   }
+
+
+
+//  translateProductDynamic(text: string): string {
+//   if (!text) return '';
+
+//   // 1️⃣ نحاول ترجمة الجملة كاملة (KEY حقيقي بدون title.)
+//   const normalizedKey = this.normalize(text);
+//   const fullTranslation = this.translateService.instant(normalizedKey);
+
+//   if (fullTranslation !== normalizedKey) {
+//     return fullTranslation;
+//   }
+
+//   // 2️⃣ fallback كلمة كلمة
+//   const words = text.split(' ');
+
+//   const translatedWords = words.map(word => {
+//     const cleanWord = word.toLowerCase().replace(/['",.]/g, '');
+//     const translated = this.translateService.instant(cleanWord);
+
+//     return translated !== cleanWord ? translated : word;
+//   });
+
+//   // 3️⃣ Arabic reorder
+//   if (this.translateService.currentLang === 'ar' && translatedWords.length === 2) {
+//     return `${translatedWords[1]} ${translatedWords[0]}`;
+//   }
+
+//   return translatedWords.join(' ');
+// }
+
+// normalize(text: string): string {
+//   return text
+//     .toLowerCase()
+//     .replace(/['"]/g, '')
+//     .replace(/-/g, ' ')
+//     .trim()
+//     .replace(/\s+/g, '_');
+// }
 
 }
