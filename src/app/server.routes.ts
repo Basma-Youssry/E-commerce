@@ -29,7 +29,7 @@ export const serverRoutes: ServerRoute[] = [
       ];
     }
   },
-
+  { path: 'check-out/:id', renderMode: RenderMode.Client },
   // Details with only id
   {
     path: 'details/:id',
