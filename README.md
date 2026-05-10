@@ -1,64 +1,70 @@
-<<<<<<< HEAD
-# App
+## ✨ Project Features
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.5.
+- 🌍 Multi-language support (Arabic & English)
+- 🖥️ Modern and responsive Landing Page
+- 📱 Fully responsive across all screen sizes
+- ⚡ Uses Signals instead of Angular Zone.js
+- 🎨 Styled with Tailwind CSS v4
+- 🚀 Developed with Angular 20
 
-## Development server
+  ## 🚧 Challenges Faced
+    ## 1- 🚧 Tailwind & `routerLinkActive` Issue
+    
+    - Faced an issue with `routerLinkActive` because of incorrect Tailwind CSS syntax.
+    
+    ### ❌ Incorrect Syntax
+    
+    ```html
+    routerLinkActive="text-#09C"
+    ```
+    
+    ### ✅ Correct Syntax
+    
+    ```html
+    routerLinkActive="text-[#09C]"
+    ```
+    
+    ### 💡 Why the Issue Happened
+    
+    - Tailwind CSS works at **build time** and generates classes only from the valid class names it detects in the source code.
+    - Since the original syntax was invalid, Tailwind could not generate the required CSS class.
+    - As a result, when `routerLinkActive` became active, no style was applied because the generated class did not exist.
+    ````
 
-To start a local development server, run:
+    ## 2- 🖼️ Angular 20 Image Path Issue
+  
+      - In Angular 20, image paths should be referenced **without** using `/public/`.
+      
+      ### ✅ Correct Path
+      
+      ```html
+      /images/example.png
+      ```
+      
+      ### ❌ Incorrect Path
+      
+      ```html
+      /public/images/example.png
+      ```
+      
+    ## 3-💡 Explanation
+      
+      - Angular automatically serves files inside the `public` folder as static assets.
+      - Because of that, there is no need to include `/public/` in the image path.
+      - Adding `/public/` manually can cause the image not to load correctly.
+    ## 🚧 Input Validation Issue (`required="true"`)
 
-```bash
-ng serve
-```
+      - Faced an issue when using `required="true"` on input fields.  
+      - It caused problems because Angular treated it as a strict compile-time requirement, meaning the property had to            always have a value during compilation; otherwise, it could lead to unexpected behavior or removal during build.
+      
+      ### 💡 Solution
+      
+      - Removing `required="true"` provided more flexibility in handling inputs.  
+      - It allowed the use of dynamic values such as `product` or `category`.  
+      - It also enabled conditional validation directly in templates instead of enforcing strict compile-time rules.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+    ## 4- API Data Enhancement (Adding Price Field)
+    
+      - Used the Categories API, which did not originally include a `price` field. To handle this, I used the `map()` method       to inject dynamic price values into each object, assigning different prices to each category item within the API data.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-=======
-# E-commerce
-This website made with Angular20 and tailwind4.
->>>>>>> ae6d3deb0be78c69fa35bd91b28d04e37fb3a5dc
+    
