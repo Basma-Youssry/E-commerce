@@ -64,7 +64,96 @@
       - It also enabled conditional validation directly in templates instead of enforcing strict compile-time rules.
 
     ## 4- API Data Enhancement (Adding Price Field)
-    
       - Used the Categories API, which did not originally include a `price` field. To handle this, I used the `map()` method       to inject dynamic price values into each object, assigning different prices to each category item within the API data.
 
+    ## 5- Best Selling Styling with Flowbite Integration
+      - Implemented **Best Selling styling** to enhance the UI design and improve the visual structure of the section.
+      - Used **Flowbite** to integrate the **Group Buttons component** inside the project, enabling reusable and consistent         UI elements.
+
+    ## 6- Sub Slider Issue Fixed Using Swiper
+      - Faced an issue with the **Sub Slider**, which was the second slider implemented in the project.
+      - Solved the problem by integrating the **Swiper** package into the project.
+      - Used Swiper components to build a highly flexible and feature-rich slider system with a wide range of customization          options.
+
+    ## 7- Customizing Swiper Navigation Buttons
+      - While using the **Swiper** library to create sliders, I faced a challenge customizing the navigation arrows based on         the required UI design.
+      - The default arrow styling did not match the desired appearance, so I customized the navigation buttons separately            from the arrow icons.
+      - Used Swiper’s dedicated selectors to fully control the button and arrow styling independently.
+      - Applied custom `width` and `height` values to resize the navigation buttons and achieve the exact design                     requirements instead of relying on **Font Awesome** icons.
+
+    ## 8- Dynamic Class Binding in Best Selling Section
+      - In the **Best Selling** section, I implemented dynamic styling for the **Buttons Group** to control the card                position based on user interaction.
+      - Used Angular **Class Binding** to apply conditional classes dynamically when a button is clicked.
+      - Implemented logic that checks a condition:
+        - If the condition is `true`, a specific set of classes is applied.
+        - If the condition is `false`, a different set of classes is applied.
+      - This approach ensures that only one group of classes is rendered at a time instead of applying both simultaneously.
+
+    ## 9- Planning Required Libraries Before Starting the Project
+      - Identified and selected the required libraries before starting the project development process.
+      - This approach helps ensure that all project requirements are covered efficiently without adding unnecessary                  dependencies later.
+      - Focused on choosing libraries that provide the needed features while maintaining good performance and scalability.
+      - Considered the impact of external packages on the application's **Bundle Size** to avoid performance issues and              unnecessary project bloat.
+
+    ## 10- Using SVG Instead of Font Awesome for Better Center Alignment
+      - In the **Details Page**, I needed to perfectly center the `+` icon inside a flex container.
+      - Faced alignment issues while using **Font Awesome** icons because they behave similarly to text characters and are           affected by font rendering and line-height behavior.
+      - Replaced the Font Awesome icon with an **SVG** solution to achieve more accurate positioning and consistent                  alignment.
+      - Learned that SVGs are **vector graphics** rather than traditional font-based icons, which makes them easier to               control inside flex layouts.
+      - Using SVG improved the centering behavior and prevented unwanted font-related styling issues.
+
+    ## 11- Deploying the Angular Project and Handling SSR Limitations
+      - Used **Render** and **Rootsite** for deploying and hosting the project on a server.
+      - Faced a deployment limitation because the project was built with **Angular 20 SSR (Server-Side Rendering)**.
+      - Learned that the free hosting setup on **Rootsite** only supports **Static Hosting**, which is not compatible with           SSR applications.
+      - Due to this limitation, I switched to another hosting platform that supports SSR deployment properly.
+
+    ## 12- Fixing Phone Input Validation with Regex
+      - Faced an issue while applying **Regex validation** to the phone input field.
+      - The validation was not working correctly because the input field was initially set to `type="number"`.
+      - Discovered that browsers automatically remove leading zeros from number inputs, which caused the Regex pattern               validation to fail.
+      - Solved the issue by changing the input type from `number` to `tel`.
+      - Using `type="tel"` preserved the phone number formatting and allowed the Regex validation to work correctly.
+
+    ## 13- Problem Solving Approach in Angular Projects
+      - Learned that in Angular projects, it is important to thoroughly investigate issues when the application becomes              unresponsive or “freezes” during runtime.
+      - Avoided immediately escalating problems and instead focused on reproducing and analyzing the issue carefully.
+      - Tried different solutions independently before seeking help, as many problems can be resolved with proper debugging          and understanding of the root cause.
+      - Strengthened my problem-solving skills by relying on hands-on practice and debugging rather than assumptions.
+
+    ## 14- Fixing Angular SSR Routing Issue with Dynamic Checkout IDs
+      - Faced an issue in Angular SSR where the **checkout route with dynamic ID parameters** was causing errors.
+      - Solved the problem by defining a **static route without parameters**, since SSR requires predictable (static) routes         during server rendering.
+      - After that, Angular was able to correctly interpret the dynamic ID as part of the checkout path during client-side           navigation.
+      - Another issue appeared because the server-side rendering could not resolve dynamic route values at runtime.
+      - Fixed this by ensuring that the **checkout route is rendered on the client-side instead of the server-side**, since          dynamic parameters cannot be resolved during SSR.
+      - Applied the solution in **`server.js` / app server configuration** by delegating this route to client-side rendering         only.
+
+    ## 15- Preventing Unintended Form Submission in Checkout Page
+      - Faced an issue in the **Checkout Page** where clicking on inputs or buttons was triggering an unintended form                submission.
+      - Discovered that in HTML, the default behavior for buttons inside a form is `type="submit"`, which causes automatic           submission when interacting with inputs or buttons.
+      - Solved the issue by explicitly setting all buttons to `type="button"` instead of relying on the default behavior.
+      - This prevented the browser from triggering automatic form submission when clicking inputs or buttons.
+      - Ensured that the form submission happens only manually through a controlled click event that executes the required           functions properly.
+
+    ## 16- Using Signals with Form Data in Angular Checkout
+      - Learned that **Signals** in Angular behave differently from regular **Inputs/Props**, especially regarding initial           values.
+      - Unlike standard props, signals may require an initial value to avoid undefined state issues.
+      - In the **Checkout Component**, I needed to pass a `FormGroup` as a value directly to a signal.
+      - Solved the issue by initializing the signal properly and binding the **FormGroup value directly to the signal**.
+      - This ensured consistent state management and avoided runtime errors related to undefined or missing form data.
     
+  ## 17- Handling Multilingual Data Between Front-End and Back-End
+    - Identified that proper handling of **multi-language support** should ideally be managed by the back-end when sending         localized data.
+    - In the project, the API was returning data only in **English**, while the requirement was to display content in              **Arabic** for better user experience and localization consistency.
+    - Implemented a front-end solution to map or transform the received English data into Arabic translations before               displaying it to the user.
+    - This approach ensured that the UI matches the expected language, although it required additional effort on the front-        end side due to missing back-end localization support.
+
+    ## 18- Zone.js vs Zoneless in Angular 20 & Angular 21 (SSR vs CSR)
+    - In **Angular 20 with SSR**, removing `Zone.js` is not recommended because it is still required for proper change             detection and application stability.
+    - Initially removed `Zone.js`, but had to re-add it because the application broke under SSR.
+    - Learned that **Zoneless change detection** is mainly suitable for **CSR (Client-Side Rendering)** scenarios rather           than SSR setups.
+    - In **Angular 21**, Zoneless support became available by default, reducing the need to manually import `Zone.js` in           `main.ts`.
+    - Conclusion:  
+      - Use `Zone.js` in SSR projects for Angular 20.  
+      - Use **Zoneless approach** in CSR projects or Angular 21 where it is supported by default.
