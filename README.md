@@ -157,3 +157,33 @@
     - Conclusion:  
       - Use `Zone.js` in SSR projects for Angular 20.  
       - Use **Zoneless approach** in CSR projects or Angular 21 where it is supported by default.
+
+    ## 19- Wishlist Remove Issue & Refreshing Data
+      - Faced an issue while removing items from the Wishlist because the data returned from the Backend only contained              product IDs instead of full product details.
+      - Because of that, the remaining products inside the Wishlist could not be displayed correctly after removing an item.
+      - To solve this issue, after the `remove` function and the `subscribe` response from the Backend, I re-called the              `getLoggedUserWishlist()` function.
+      - This ensures fetching the updated Wishlist data again and displaying the remaining products correctly in the UI.
+      
+    ## 20- Handling SSR Authentication & Interceptor Issues in Angular
+    - Faced an issue in the **SSR application** because the app runs on the server first before loading in the browser.
+    - Since browser cookies are not directly available during the initial server-side rendering, the server treated the user       as if they were not logged in.
+    - As a result, the server returned `401 Unauthorized` responses during SSR requests.
+    - Another issue was that the `HTTP Interceptor` handled these errors normally and triggered error notifications using         `Toastr`, without distinguishing whether the error happened during SSR or inside the browser.
+    - This caused unnecessary error messages to appear during the SSR rendering phase.
+    - Solution:
+      - Prevented `Toastr` notifications from appearing during SSR.
+      - Prevented handling `401 Unauthorized` errors inside the Interceptor during SSR requests.
+      - This improved the SSR user experience and avoided showing false authentication errors before the application was             fully loaded in the browser.
+
+    ## 21- Signals vs Subscription in Angular
+    - Learned the difference between using `Signals` and `Subscriptions` in Angular state management.
+    - `Signals` directly manage and update the state reactively without the need for manual subscriptions.
+    - Unlike `Subscription`, Signals do not continuously listen for emitted values through an `Observer` pattern.
+    - `Subscription` works with Observables and requires subscribing to data streams to receive updates.
+    - Signals provide a simpler and cleaner reactive approach for local state management compared to traditional                   subscriptions.
+
+    ## 22- Fixing Font Issue During Angular SSR Build
+    - Faced a build error while working with SSR because the server could not properly resolve the font files during the           build process.
+    - Solved the issue by updating the `angular.json` configuration file.
+    - Added the font optimization configuration and set it to `false`.
+    - This prevented SSR from trying to process the fonts incorrectly during the build step and fixed the application build        successfully.
